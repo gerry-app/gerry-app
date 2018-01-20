@@ -15,8 +15,20 @@ const styles = {
 class MainApp extends React.PureComponent {
   constructor(props) {
     super(props);
+    let districts = {};
+    this.props.grid.forEach(row => {
+      row.cells.forEach(cell => {
+        const districtNum = `${cell.district}`;
+        if (districtNum in districts) {
+          districts[districtNum] += cell.population;
+        } else {
+          districts[districtNum] = cell.population;
+        }
+      });      
+    });
     this.state = {
       focusedCell: null,
+      districts,
     };
   }
 
@@ -28,10 +40,33 @@ class MainApp extends React.PureComponent {
     this.setState({ focusedCell: null });
   };
 
+  updateDistrict = (district, cell) => {
+    this.state.districts[`${district}`] += cell.population;
+    this.state.districts[`${cell.district}`] -= cell.population;
+  }
+
   render() {
     const { classes, grid } = this.props;
     return (
       <Grid fluid>
+        <table>
+          <thead>
+            <tr>
+              <th>District Number</th>
+              <th>Population</th>
+            </tr>
+          </thead>
+          <tbody>
+          {Object.keys(this.state.districts).map(districtNum => {
+            return (
+              <tr key={districtNum}>
+                <td>{districtNum}</td>
+                <td>{this.state.districts[districtNum]}</td>
+              </tr>
+            );
+          })}
+          </tbody>
+        </table>
         {grid.map((row, index) => {
           return (
             <div className={classes.row} key={index}>
@@ -40,6 +75,7 @@ class MainApp extends React.PureComponent {
                   focusedCell={this.state.focusedCell}
                   key={cIndex}
                   cell={cell}
+                  updateDistrict={this.updateDistrict}
                   onMouseDown={this.handleMouseDown}
                   onMouseUp={this.handleMouseUp}
                 />

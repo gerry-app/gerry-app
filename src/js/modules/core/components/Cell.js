@@ -20,6 +20,7 @@ class Cell extends React.Component {
   handleMouseEnter = () => {
     const { focusedCell, cell } = this.props;
     if (focusedCell && focusedCell.district !== cell.district) {
+      this.props.updateDistrict(focusedCell.district, cell);
       cell.district = focusedCell.district;
       this.forceUpdate();
     }
