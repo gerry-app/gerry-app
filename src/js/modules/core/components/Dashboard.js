@@ -2,9 +2,8 @@ import React from "react";
 import injectSheet from "react-jss";
 import { GET_DISTRICT_COLOR } from "../../../constants";
 
-const styles = {  
-  status: {
-  },
+const styles = {
+  status: {},
   tableRow: {
     fontFamily: "Atlas Grotesk",
     fontSize: "12px",
@@ -29,10 +28,18 @@ const Dashboard = ({ classes, districts }) => {
         <tbody>
           {Object.keys(districts).map(districtCode => {
             const district = districts[districtCode];
-            const population = district.democrats + district.republicans + district.independents;
+            const population =
+              district.democrats + district.republicans + district.independents;
             return (
               <tr key={districtCode} className={classes.tableRow}>
-                <td style={{ background: GET_DISTRICT_COLOR(districtCode), color: "#fff" }}>{districtCode}</td>
+                <td
+                  style={{
+                    background: GET_DISTRICT_COLOR(districtCode),
+                    color: "#fff",
+                  }}
+                >
+                  {districtCode}
+                </td>
                 <td>{population}</td>
                 <td>{Math.round(district.democrats / population * 100)}%</td>
                 <td>{Math.round(district.republicans / population * 100)}%</td>

@@ -57,7 +57,7 @@ class Gerrymander extends React.PureComponent {
     this.setState({ focusedCell: null });
   };
 
-  handleMouseEnter = cell => {  
+  handleMouseEnter = cell => {
     const { focusedCell, districts, grid } = this.state;
     if (focusedCell && focusedCell.district !== cell.district) {
       districts[focusedCell.district].democrats += cell.democrats;
@@ -72,14 +72,14 @@ class Gerrymander extends React.PureComponent {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, match } = this.props;
     const { grid, districts } = this.state;
     return (
       <div className={classes.Gerrymander}>
         <Helmet>
-          <title>The Stuyvesant Spectator</title>
+          <title>{match.state_code}</title>
         </Helmet>
-        <div className={classes.grid}>          
+        <div className={classes.grid}>
           {grid.map((row, index) => {
             return (
               <div className={classes.row} key={index}>
