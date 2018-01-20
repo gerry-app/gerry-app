@@ -12,7 +12,7 @@ const styles = {
   },
 };
 
-class MainApp extends React.PureComponent {
+class Gerrymander extends React.PureComponent {
   constructor(props) {
     super(props);
     let districts = {};
@@ -104,4 +104,4 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators({ refreshWindowDimensions }, dispatch);
 };
 
-export default connect(mapStateToProps)(injectSheet(styles)(MainApp));
+export default connect(mapStateToProps)(injectSheet(styles)(Gerrymander));

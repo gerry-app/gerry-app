@@ -1,8 +1,8 @@
 import Provider from "react-redux/lib/components/Provider";
 import React, { Component } from "react";
-import Route from "react-router-dom/Route";
+import { Switch, Route } from "react-router-dom";
 import appHistory from "tools/appHistory";
-import MainApp from "./core/components/MainApp";
+import { MainApp, HomePage, PageLayout, Glossary } from "./core/components";
 import ConnectedRouter from "react-router-redux/ConnectedRouter";
 import store from "../store";
 
@@ -11,7 +11,12 @@ class RoutingApp extends Component {
     return (
       <Provider store={store}>
         <ConnectedRouter history={appHistory}>
-          <Route exact path="/" component={MainApp} />
+          <PageLayout>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/glossary" component={Glossary} />
+            </Switch>
+          </PageLayout>
         </ConnectedRouter>
       </Provider>
     );
