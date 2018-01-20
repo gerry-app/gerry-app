@@ -1,24 +1,49 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import injectSheet from "react-jss";
 import { connect } from "react-redux";
+import { Grid, Row } from "react-bootstrap/lib/";
 
-import Cell from "./";
+import Cell from "./Cell";
 import { refreshWindowDimensions } from "../actions";
 
 const styles = {
-
+  row: {
+    height: "60px",
+  }
 };
 
-const MainApp = ({ classes, grid }) => {
-  return (
-    <div>
-      {grid.map(row => {
-        return row.cells.map(cell => {
-          <Cell cell={cell} />;
-        })
+class MainApp extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      focusedCell: null,
+    };
+  }
+
+  handleMouseDown = cell => {    
+    console.log(cell);
+    this.setState({ focusedCell: cell });
+  }
+
+  handleMouseUp = () => {
+    this.setState({ focusedCell: null });
+  }
+
+  render() {
+    const { classes, grid } = this.props;
+    console.log(this.state);
+    return (
+      <Grid fluid>
+      {grid.map((row, index) => {
+        return (
+          <div className={classes.row} key={index}>
+            {row.cells.map((cell, cIndex) => <Cell focusedCell={this.state.focusedCell} key={cIndex} cell={cell} onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} />)}
+          </div>
+        );
       })}
-    </div>
-  )
+      </Grid>
+    );
+  }
 };
 
 const mapStateToProps = state => ({
