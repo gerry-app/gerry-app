@@ -1,6 +1,6 @@
 import React from "react";
 import injectSheet from "react-jss";
-import { CELL_SIZE } from "../../../constants";
+import { CELL_SIZE, GET_DISTRICT_COLOR } from "../../../constants";
 
 const styles = {
   Cell: {
@@ -10,15 +10,6 @@ const styles = {
     userSelect: "none",
   },
 };
-
-const districtColors = [
-  "#D8334A",
-  "#48CFAD",
-  "#4FC1E9",
-  "#FFCE54",
-  "#A0D468",
-  "#888888",
-];
 
 class Cell extends React.Component {
   constructor(props) {
@@ -51,7 +42,7 @@ class Cell extends React.Component {
         onMouseUp={onMouseUp}
         onMouseEnter={() => onMouseEnter(cell)}
         style={{
-          backgroundColor: cell ? districtColors[cell.district] : "#fff",
+          backgroundColor: cell ? GET_DISTRICT_COLOR(cell.district) : "#fff",
         }}
       />
     );

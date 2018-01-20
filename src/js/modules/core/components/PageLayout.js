@@ -14,6 +14,9 @@ const styles = {
     width: "154px",
     textAlign: "center",
     lineHeight: 1.2,
+    "& a": {
+      color: "#000 !important",
+    },
   },
   logo: {
     fontSize: "23px",
@@ -27,7 +30,10 @@ const styles = {
     paddingLeft: "0.35em",
   },
   pageContent: {
-    padding: "64px 28px 64px 210px",
+    background: "aliceblue",
+    padding: "64px 28px 64px 0",
+    marginLeft: "210px",
+    minHeight: "100vh",
   },
   pageNavMain: {
     "& > li": {

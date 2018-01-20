@@ -1,15 +1,17 @@
 const initialState = { grid: [] };
 
-const NUM_COLS = 40;
-const NUM_ROWS = 40;
+const NUM_COLS = 30;
+const NUM_ROWS = 30;
 
 for (let r = 0; r < NUM_ROWS; r++) {
   const row = [];
   for (let c = 0; c < NUM_COLS; c++) {
     row.push({
       id: r * NUM_COLS + c,
-      district: Math.floor(r / 7),
-      population: 10,
+      district: `NY-${Math.floor(r / 7)}`,
+      democrats: 50 + Math.ceil(Math.random() * 10),
+      republicans: 50 + Math.ceil(Math.random() * 10),
+      independents: Math.ceil(Math.random() * 10),
       row: r,
       col: c,
     });

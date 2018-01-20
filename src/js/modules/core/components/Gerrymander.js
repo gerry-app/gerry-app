@@ -3,11 +3,12 @@ import injectSheet from "react-jss";
 import { connect } from "react-redux";
 
 import Cell from "./Cell";
-import { CELL_SIZE } from "../../../constants";
+import Dashboard from "./Dashboard";
+import { CELL_SIZE, GET_DISTRICT_COLOR } from "../../../constants";
 import { refreshWindowDimensions } from "../actions";
 
 const styles = {
-  Gerrymander: {
+  grid: {
     width: "940px",
     margin: "0 auto",
   },
@@ -22,12 +23,16 @@ class Gerrymander extends React.PureComponent {
     let districts = {};
     this.props.grid.forEach(row => {
       row.forEach(cell => {
-        const districtNum = `${cell.district}`;
-        if (districtNum in districts) {
-          districts[districtNum] += cell.population;
+        if (cell.district in districts) {
+          districts[cell.district].democrats += cell.democrats;
+          districts[cell.district].republicans += cell.republicans;
+          districts[cell.district].independents += cell.independents;
         } else {
-          console.log(districtNum, cell);
-          districts[districtNum] = cell.population;
+          districts[cell.district] = {
+            democrats: cell.democrats,
+            republicans: cell.republicans,
+            independents: cell.independents,
+          };
         }
       });
     });
@@ -50,8 +55,12 @@ class Gerrymander extends React.PureComponent {
   handleMouseEnter = cell => {  
     const { focusedCell, districts, grid } = this.state;
     if (focusedCell && focusedCell.district !== cell.district) {
-      districts[`${focusedCell.district}`] += cell.population;
-      districts[`${cell.district}`] -= cell.population;
+      districts[focusedCell.district].democrats += cell.democrats;
+      districts[focusedCell.district].republicans += cell.republicans;
+      districts[focusedCell.district].independents += cell.independents;
+      districts[cell.district].democrats -= cell.democrats;
+      districts[cell.district].republicans -= cell.republicans;
+      districts[cell.district].independents -= cell.independents;
       grid[cell.row][cell.col].district = focusedCell.district;
       this.setState({ rerender: !this.state.rerender }); // forces child update
     }
@@ -59,42 +68,27 @@ class Gerrymander extends React.PureComponent {
 
   render() {
     const { classes } = this.props;
-    const { grid } = this.state;
+    const { grid, districts } = this.state;
     return (
       <div className={classes.Gerrymander}>
-        <table>
-          <thead>
-            <tr>
-              <th>District Number</th>
-              <th>Population</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.keys(this.state.districts).map(districtNum => {
-              return (
-                <tr key={districtNum}>
-                  <td>{districtNum}</td>
-                  <td>{this.state.districts[districtNum]}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-        {grid.map((row, index) => {
-          return (
-            <div className={classes.row} key={index}>
-              {row.map((cell, cIndex) => (
-                <Cell
-                  key={cIndex}
-                  cell={cell}
-                  onMouseEnter={this.handleMouseEnter}
-                  onMouseDown={this.handleMouseDown}
-                  onMouseUp={this.handleMouseUp}
-                />
-              ))}
-            </div>
-          );
-        })}
+        <div className={classes.grid}>          
+          {grid.map((row, index) => {
+            return (
+              <div className={classes.row} key={index}>
+                {row.map((cell, cIndex) => (
+                  <Cell
+                    key={cIndex}
+                    cell={cell}
+                    onMouseEnter={this.handleMouseEnter}
+                    onMouseDown={this.handleMouseDown}
+                    onMouseUp={this.handleMouseUp}
+                  />
+                ))}
+              </div>
+            );
+          })}
+        </div>
+        <Dashboard districts={districts} />
       </div>
     );
   }

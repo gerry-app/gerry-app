@@ -6,6 +6,15 @@ const styles = {
     maxWidth: "940px",
     margin: "0 auto",
   },
+  sexy: {
+    fontFamily: "Atlas Grotesk",
+    fontWeight: 300,
+    fontSize: "11px",
+    textTransform: "uppercase",
+  },
+  elbridge: {
+    width: "60vw",
+  },
   term: {
     "& b": {
       fontFamily: "Super Grotesk",
@@ -19,6 +28,8 @@ const styles = {
 const AboutPage = ({ classes }) => {
   return (
     <div className={classes.AboutPage}>
+      <p className={classes.sexy}>Elbridge Gerry</p>
+      <img src="/img/elbridge_gerry.svg" className={classes.elbridge} />
       <div className={classes.term}>
         <b>
           Gerry is designed to educate, engage, and empower citizens around the
