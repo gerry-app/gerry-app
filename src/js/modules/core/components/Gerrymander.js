@@ -8,8 +8,12 @@ import { CELL_SIZE, GET_DISTRICT_COLOR } from "../../../constants";
 import { refreshWindowDimensions } from "../actions";
 
 const styles = {
+  Gerrymander: {
+    display: "flex",
+    justifyContent: "space-around",
+  },
   grid: {
-    width: "940px",
+    width: "600px",
     margin: "0 auto",
   },
   row: {

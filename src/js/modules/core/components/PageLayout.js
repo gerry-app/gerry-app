@@ -30,7 +30,6 @@ const styles = {
     paddingLeft: "0.35em",
   },
   pageContent: {
-    background: "aliceblue",
     padding: "64px 28px 64px 0",
     marginLeft: "210px",
     minHeight: "100vh",
@@ -100,7 +99,7 @@ const PageLayout = ({ classes, children, location }) => {
           </li>
         </ul>
       </div>
-      <div className={classes.pageContent}>{children}</div>
+      <div className={classes.pageContent} style={{ backgroundColor: location.pathname === "/" ? "aliceblue" : "#fff" }}>{children}</div>
     </div>
   );
 };
