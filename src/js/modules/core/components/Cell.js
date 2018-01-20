@@ -1,11 +1,12 @@
 import React from "react";
 import injectSheet from "react-jss";
+import { CELL_SIZE } from "../../../constants";
 
 const styles = {
   Cell: {
     display: "inline-block",
-    height: "20px",
-    width: "20px",
+    height: CELL_SIZE,
+    width: CELL_SIZE,
     userSelect: "none",
   },
 };

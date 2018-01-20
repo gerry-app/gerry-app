@@ -5,6 +5,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Atlas Grotesk';
+    src: url('../fonts/AtlasGrotesk-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     overflow-y: scroll;
     height: 100%;

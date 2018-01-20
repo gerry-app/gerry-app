@@ -16,18 +16,15 @@ const styles = {
     lineHeight: 1.2,
   },
   logo: {
-    fontSize: "28px",
-    fontFamily: "Helvetica",
+    fontSize: "23px",
+    fontFamily: "Atlas Grotesk",
     letterSpacing: "0.05em",
     marginBottom: "30px",
-    color: "#000",
+    fontWeight: 700,
     display: "block",
     textDecoration: "none",
     textTransform: "uppercase",
     paddingLeft: "0.35em",
-    "&:hover, &:active, &:focus": {
-      color: "#000",
-    },
   },
   pageContent: {
     padding: "64px 28px 64px 210px",
@@ -36,14 +33,10 @@ const styles = {
     "& > li": {
       marginBottom: "0.5em",
       "& > a": {
-        color: "#000",
         textDecoration: "none",
         letterSpacing: "0.2em",
         textTransform: "uppercase",
         paddingLeft: "0.35em",
-        "&:hover, &:active, &:focus": {
-          color: "#000",
-        },
       },
     },
   },
@@ -52,18 +45,14 @@ const styles = {
     "& > li": {
       marginBottom: "0.5em",
       "& > a": {
-        color: "#000",
         textDecoration: "none",
         paddingLeft: "0.35em",
-        "&:hover, &:active, &:focus": {
-          color: "#000",
-        },
       },
     },
   },
 };
 
-const PageLayout = ({ classes, children }) => {
+const PageLayout = ({ classes, children, location }) => {
   return (
     <div>
       <div className={classes.sidebarContainer}>

@@ -3,11 +3,16 @@ import injectSheet from "react-jss";
 import { connect } from "react-redux";
 
 import Cell from "./Cell";
+import { CELL_SIZE } from "../../../constants";
 import { refreshWindowDimensions } from "../actions";
 
 const styles = {
+  Gerrymander: {
+    width: "940px",
+    margin: "0 auto",
+  },
   row: {
-    height: "20px",
+    height: CELL_SIZE,
   },
 };
 
@@ -42,13 +47,13 @@ class Gerrymander extends React.PureComponent {
     this.setState({ focusedCell: null });
   };
 
-  handleMouseEnter = cell => {
+  handleMouseEnter = cell => {  
     const { focusedCell, districts, grid } = this.state;
     if (focusedCell && focusedCell.district !== cell.district) {
       districts[`${focusedCell.district}`] += cell.population;
       districts[`${cell.district}`] -= cell.population;
       grid[cell.row][cell.col].district = focusedCell.district;
-      this.setState({ rerender: !this.state.rerender });
+      this.setState({ rerender: !this.state.rerender }); // forces child update
     }
   };
 
@@ -56,7 +61,7 @@ class Gerrymander extends React.PureComponent {
     const { classes } = this.props;
     const { grid } = this.state;
     return (
-      <div>
+      <div className={classes.Gerrymander}>
         <table>
           <thead>
             <tr>
