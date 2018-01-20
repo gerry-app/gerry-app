@@ -2,6 +2,7 @@ import React from "react";
 import injectSheet from "react-jss";
 import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
+import { withRouter } from "react-router-dom";
 
 import State from "./State";
 import Dashboard from "./Dashboard";
@@ -19,8 +20,11 @@ const styles = {
 };
 
 const UnitedStates = ({ classes, grid, history }) => {
+  const handleOnClick = state => {
+    history.push(`/state/${state.code}`);
+  }
   return (
-    <div className={classes.Gerrymander}>
+    <div className={classes.UnitedStates}>
       <Helmet>
         <title>The Gerry App</title>
       </Helmet>
@@ -28,10 +32,11 @@ const UnitedStates = ({ classes, grid, history }) => {
         {grid.map((row, index) => {
           return (
             <div className={classes.row} key={index}>
-              {row.map((cell, cIndex) => (
+              {row.map((state, sIndex) => (
                 <State
-                  key={cIndex}
-                  cell={cell}
+                  key={sIndex}
+                  state={state}
+                  onClick={handleOnClick}
                 />
               ))}
             </div>
@@ -46,4 +51,4 @@ const mapStateToProps = state => ({
   grid: state.core.unitedStatesGrid,
 });
 
-export default withRouter(connect(mapStateToProps)(injectSheet(styles)(Gerrymander)));
+export default withRouter(connect(mapStateToProps)(injectSheet(styles)(UnitedStates)));

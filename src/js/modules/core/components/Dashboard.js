@@ -3,7 +3,9 @@ import injectSheet from "react-jss";
 import { GET_DISTRICT_COLOR } from "../../../constants";
 
 const styles = {
-  status: {},
+  status: {
+    marginTop: "35px",
+  },
   tableRow: {
     fontFamily: "Atlas Grotesk",
     fontSize: "12px",

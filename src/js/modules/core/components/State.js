@@ -1,6 +1,13 @@
 import React from "react";
 import injectSheet from "react-jss";
-import { CELL_SIZE, GET_DISTRICT_COLOR } from "../../../constants";
+import { CELL_SIZE, GET_DISTRICT_COLOR, STATE_CODE_TO_COLOR_INDEX } from "../../../constants";
+
+const stateColors = [
+  "#D8334A",
+  "#48CFAD",
+  "#4FC1E9",
+  "#FFCE54",
+];
 
 const styles = {
   State: {
@@ -11,15 +18,13 @@ const styles = {
   },
 };
 
-const State = ({ classes, state }) => {
+const State = ({ classes, state, onClick }) => {
   return (
     <div
       className={classes.State}
-      onMouseDown={() => onMouseDown(cell)}
-      onMouseUp={onMouseUp}
-      onMouseEnter={() => onMouseEnter(cell)}
+      onClick={() => onClick(state)}
       style={{
-        backgroundColor: cell ? GET_DISTRICT_COLOR(cell.district) : "#fff",
+        backgroundColor: stateColors[STATE_CODE_TO_COLOR_INDEX[state.code]],
       }}
     />
   );

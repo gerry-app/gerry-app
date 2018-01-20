@@ -3,6 +3,8 @@ import injectSheet from "react-jss";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
+import { UnitedStates } from "./";
+
 const styles = {};
 
 const HomePage = ({ classes }) => {
@@ -11,7 +13,7 @@ const HomePage = ({ classes }) => {
       <Helmet>
         <title>The Gerry App</title>
       </Helmet>
-      <Link to="/state/NY">enter NY</Link>
+      <UnitedStates />
     </div>
   );
 };

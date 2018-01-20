@@ -8,6 +8,10 @@ const styles = {
     height: CELL_SIZE,
     width: CELL_SIZE,
     userSelect: "none",
+    boxSizing: "border-box",
+    "&:hover": {
+      border: "2px solid #ddd",
+    },
   },
 };
 

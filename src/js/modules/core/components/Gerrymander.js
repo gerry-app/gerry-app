@@ -19,6 +19,12 @@ const styles = {
     width: "600px",
     margin: "0 auto",
   },
+  sexy: {
+    fontFamily: "Atlas Grotesk",
+    fontWeight: 300,
+    fontSize: "11px",
+    textTransform: "uppercase",
+  },
   row: {
     height: CELL_SIZE,
   },
@@ -93,7 +99,7 @@ class Gerrymander extends React.PureComponent {
       />,
     ];
     return (
-      <div className={classes.Gerrymander}>
+      <div>
         <Helmet>
           <title>{`The State of ${STATE_CODE_TO_NAME[match.params.state_code]}`}</title>
         </Helmet>
@@ -106,24 +112,27 @@ class Gerrymander extends React.PureComponent {
         >
           This map represents the most recent redistricting of {STATE_CODE_TO_NAME[match.params.state_code]}.
         </Dialog>
-        <div className={classes.grid}>
-          {grid.map((row, index) => {
-            return (
-              <div className={classes.row} key={index}>
-                {row.map((cell, cIndex) => (
-                  <Cell
-                    key={cIndex}
-                    cell={cell}
-                    onMouseEnter={this.handleMouseEnter}
-                    onMouseDown={this.handleMouseDown}
-                    onMouseUp={this.handleMouseUp}
-                  />
-                ))}
-              </div>
-            );
-          })}
+        <div className={classes.Gerrymander}>
+          <div className={classes.grid}>
+            <p className={classes.sexy}>{STATE_CODE_TO_NAME[match.params.state_code]}</p>
+            {grid.map((row, index) => {
+              return (
+                <div className={classes.row} key={index}>
+                  {row.map((cell, cIndex) => (
+                    <Cell
+                      key={cIndex}
+                      cell={cell}
+                      onMouseEnter={this.handleMouseEnter}
+                      onMouseDown={this.handleMouseDown}
+                      onMouseUp={this.handleMouseUp}
+                    />
+                  ))}
+                </div>
+              );
+            })}
+          </div>
+          <Dashboard districts={districts} />
         </div>
-        <Dashboard districts={districts} />
       </div>
     );
   }

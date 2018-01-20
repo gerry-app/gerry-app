@@ -88,9 +88,8 @@ const PageLayout = ({ classes, children, location }) => {
               State Links
             </a>
           </li>
-          {/* possibly we could do a page for state links if time */}
           <li>
-            <Link to="https://ballotpedia.org/State-by-state_redistricting_procedures">How My State Does It</Link>
+            <a href="https://ballotpedia.org/State-by-state_redistricting_procedures">How My State Does It</a>
           </li>
           <li>
             <a href="http://www.redistrictingthenation.com/glossary.aspx">
