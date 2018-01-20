@@ -90,7 +90,7 @@ export const STATE_CODE_TO_COLOR_INDEX = {
   ME: 0,
   MD: 3,
   OK: 0,
-  OH: 3
+  OH: 3,
   UT: 2,
   MO: 3,
   MN: 2,
