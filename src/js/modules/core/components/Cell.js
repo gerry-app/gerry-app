@@ -2,32 +2,21 @@ import React from "react";
 import injectSheet from "react-jss";
 
 const styles = {
-  NullCell: {
-    display: "inline-block",
-    height: "60px",
-    width: "60px",
-    color: "#fff",
-    userSelect: "none",
-  },
   Cell: {
     display: "inline-block",
-    height: "60px",
-    width: "60px",
+    height: "30px",
+    width: "30px",
     userSelect: "none",
   },
 };
 
-const districtColors = ["#4FC1E9", "#A0CECB", "#7DB1B1"];
+const districtColors = ["#A0CECB", "#7DB1B1", "#4FC1E9", ];
 
 const Cell = ({ classes, cell, focusedCell, onMouseDown, onMouseUp }) => {
-  if (!cell) {
-    return <div className={classes.NullCell} />;
-  }
-
   const handleMouseEnter = () => {
     if (focusedCell && focusedCell.district !== cell.district) {
+      console.log('changed cell')
       cell.district = focusedCell.district;
-      console.log('udpated color');
     }
   }
 
@@ -37,7 +26,7 @@ const Cell = ({ classes, cell, focusedCell, onMouseDown, onMouseUp }) => {
       onMouseDown={() => onMouseDown(cell)}
       onMouseUp={onMouseUp}
       onMouseEnter={handleMouseEnter}
-      style={{ backgroundColor: districtColors[cell.district] }}
+      style={{ backgroundColor: cell ? districtColors[cell.district] : "#fff" }}
     />
   );
 };

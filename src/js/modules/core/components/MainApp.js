@@ -8,7 +8,7 @@ import { refreshWindowDimensions } from "../actions";
 
 const styles = {
   row: {
-    height: "60px",
+    height: "30px",
   },
 };
 
@@ -17,6 +17,8 @@ class MainApp extends React.PureComponent {
     super(props);
     this.state = {
       focusedCell: null,
+      district: [
+      ]
     };
   }
 
@@ -30,7 +32,6 @@ class MainApp extends React.PureComponent {
 
   render() {
     const { classes, grid } = this.props;
-    console.log(this.state);
     return (
       <Grid fluid>
         {grid.map((row, index) => {
