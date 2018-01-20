@@ -24,7 +24,7 @@ body {
     border-right: 8px solid #ffe400;
     background-color: #fff;
     color: #000;
-    font: 14px 'Times New Roman',serif !important;
+    font: 15px/1.67 'Times New Roman',serif !important;
     line-height: 25px !important;
     letter-spacing: 0.05em;
 }

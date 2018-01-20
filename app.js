@@ -80,7 +80,7 @@ app.get('/', (req,res)=>
 
 app.get('*', (req, res)=>
 {
-    res.send('<p>Sorry, the page you requested cannot be found. </p>');
+    res.render(__dirname + '/' + codeDir + '/index.html');
 });
 
 let startServer = ((server)=>
