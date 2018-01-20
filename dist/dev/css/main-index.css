@@ -18,7 +18,7 @@ body {
     background-color: #fff;
     color: #000;
     font: 14px 'Times New Roman',serif !important;
-    line-height: 25px;
+    line-height: 25px !important;
     letter-spacing: 0.05em;
 }
 
