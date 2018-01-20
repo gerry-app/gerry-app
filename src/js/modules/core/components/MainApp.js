@@ -2,16 +2,27 @@ import React, { PureComponent } from "react";
 import injectSheet from "react-jss";
 import { connect } from "react-redux";
 
+import Cell from "./";
 import { refreshWindowDimensions } from "../actions";
 
-const styles = {};
+const styles = {
 
-const MainApp = ({ classes }) => {
-  return null;
+};
+
+const MainApp = ({ classes, grid }) => {
+  return (
+    <div>
+      {grid.map(row => {
+        return row.cells.map(cell => {
+          <Cell cell={cell} />;
+        })
+      })}
+    </div>
+  )
 };
 
 const mapStateToProps = state => ({
-  language: state.core.language,
+  grid: state.core.grid,
 });
 
 const mapDispatchToProps = dispatch => {
