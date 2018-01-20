@@ -21,7 +21,6 @@ class MainApp extends React.PureComponent {
   }
 
   handleMouseDown = cell => {
-    console.log(cell);
     this.setState({ focusedCell: cell });
   };
 

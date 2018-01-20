@@ -23,11 +23,20 @@ const Cell = ({ classes, cell, focusedCell, onMouseDown, onMouseUp }) => {
   if (!cell) {
     return <div className={classes.NullCell} />;
   }
+
+  const handleMouseEnter = () => {
+    if (focusedCell && focusedCell.district !== cell.district) {
+      cell.district = focusedCell.district;
+      console.log('udpated color');
+    }
+  }
+
   return (
     <div
       className={classes.Cell}
       onMouseDown={() => onMouseDown(cell)}
       onMouseUp={onMouseUp}
+      onMouseEnter={handleMouseEnter}
       style={{ backgroundColor: districtColors[cell.district] }}
     />
   );
