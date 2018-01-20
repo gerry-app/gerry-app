@@ -2,7 +2,6 @@ import React from "react";
 import injectSheet from "react-jss";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-import { Helmet } from "react-helmet";
 
 const styles = {
   sidebarContainer: {
@@ -61,9 +60,6 @@ const styles = {
 const PageLayout = ({ classes, children, location }) => {
   return (
     <div>
-      <Helmet>
-        <title>The Gerry App</title>
-      </Helmet>
       <div className={classes.sidebarContainer}>
         <Link className={classes.logo} to="/">
           Gerry
@@ -94,7 +90,7 @@ const PageLayout = ({ classes, children, location }) => {
           </li>
           {/* possibly we could do a page for state links if time */}
           <li>
-            <Link to="/glossary">Glossary</Link>
+            <Link to="https://ballotpedia.org/State-by-state_redistricting_procedures">How My State Does It</Link>
           </li>
           <li>
             <a href="http://www.redistrictingthenation.com/glossary.aspx">

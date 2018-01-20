@@ -2,10 +2,12 @@ import React from "react";
 import injectSheet from "react-jss";
 import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 
 import Cell from "./Cell";
 import Dashboard from "./Dashboard";
-import { CELL_SIZE, GET_DISTRICT_COLOR } from "../../../constants";
+import { CELL_SIZE, GET_DISTRICT_COLOR, STATE_CODE_TO_NAME } from "../../../constants";
 import { refreshWindowDimensions } from "../actions";
 
 const styles = {
@@ -43,6 +45,7 @@ class Gerrymander extends React.PureComponent {
     });
     this.state = {
       focusedCell: null,
+      modalOpen: true,
       districts,
       rerender: true,
       grid: this.props.grid,
@@ -71,14 +74,38 @@ class Gerrymander extends React.PureComponent {
     }
   };
 
+  handleModalOpen = () => {
+    this.setState({modalOpen: true});
+  };
+
+  handleModalClose = () => {
+    this.setState({modalOpen: false});
+  };
+
   render() {
     const { classes, match } = this.props;
-    const { grid, districts } = this.state;
+    const { grid, districts, modalOpen } = this.state;
+    const modalActions = [
+      <FlatButton
+        label="proceed"
+        primary={true}
+        onClick={this.handleModalClose}
+      />,
+    ];
     return (
       <div className={classes.Gerrymander}>
         <Helmet>
-          <title>{match.state_code}</title>
+          <title>{`The State of ${STATE_CODE_TO_NAME[match.params.state_code]}`}</title>
         </Helmet>
+        <Dialog
+          title="Mission: Partisan Gerrymander"
+          actions={modalActions}
+          modal={false}
+          open={modalOpen}
+          onRequestClose={this.handleModalClose}
+        >
+          This map represents the most recent redistricting of {STATE_CODE_TO_NAME[match.params.state_code]}.
+        </Dialog>
         <div className={classes.grid}>
           {grid.map((row, index) => {
             return (

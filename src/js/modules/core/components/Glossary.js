@@ -1,5 +1,6 @@
 import React from "react";
 import injectSheet from "react-jss";
+import { Helmet } from "react-helmet";
 
 const styles = {
   Glossary: {
@@ -19,6 +20,9 @@ const styles = {
 const Glossary = ({ classes }) => {
   return (
     <div className={classes.Glossary}>
+      <Helmet>
+        <title>Glossary</title>
+      </Helmet>
       <div className={classes.term}>
         <b>Compactness</b>
         <p>

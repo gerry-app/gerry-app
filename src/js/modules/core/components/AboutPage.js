@@ -1,5 +1,6 @@
 import React from "react";
 import injectSheet from "react-jss";
+import { Helmet } from "react-helmet";
 
 const styles = {
   AboutPage: {
@@ -28,6 +29,9 @@ const styles = {
 const AboutPage = ({ classes }) => {
   return (
     <div className={classes.AboutPage}>
+      <Helmet>
+        <title>About Gerry App</title>
+      </Helmet>
       <p className={classes.sexy}>Elbridge Gerry</p>
       <img src="/img/elbridge_gerry.svg" className={classes.elbridge} />
       <div className={classes.term}>

@@ -19,6 +19,8 @@ for (let r = 0; r < NUM_ROWS; r++) {
   initialState.grid.push(row);
 }
 
+initialState.unitedStatesGrid = initialState.grid;
+
 const reducer = (state = { ...initialState }, action) => {
   switch (action.type) {
   }

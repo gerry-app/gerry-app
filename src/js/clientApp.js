@@ -6,6 +6,7 @@ import { AppContainer } from "react-hot-loader";
 import injectTapEventPlugin from "react-tap-event-plugin";
 import store from "./store";
 import Provider from "react-redux/lib/components/Provider";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // for onClick events with MUI/React
 try {
@@ -21,7 +22,9 @@ console.log("appVersion ->", VERSION);
 ReactDOM.render(
   <AppContainer>
     <Provider store={store}>
-      <RoutingApp />
+      <MuiThemeProvider>
+        <RoutingApp />
+      </MuiThemeProvider>
     </Provider>
   </AppContainer>,
   document.getElementById("app"),
