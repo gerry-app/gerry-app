@@ -1,5 +1,4 @@
-@font-face 
-{
+@font-face {
     font-family: 'Super Grotesk';
     src: url('../fonts/Berthold_Akidenz_Grotesk_Super.otf') format('opentype');
     font-weight: normal;
@@ -7,31 +6,24 @@
 }
 
 html {
-  overflow-y: scroll;
-  height: 100%;
+    overflow-y: scroll;
+    height: 100%;
 }
 
-body
-{
-  margin: 0;
+body {
+    margin: 0;
     min-height: 100%;
     border-left: 8px solid #ffe400;
     border-right: 8px solid #ffe400;
     background-color: #fff;
     color: #000;
-    font: 15px/1.67 'Times New Roman',serif !important;
+    font: 14px 'Times New Roman',serif !important;
+    line-height: 25px;
     letter-spacing: 0.05em;
 }
 
 ol, ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* fix for auto-complete yellow bg */
-input:-webkit-autofill
-{
-    -webkit-box-shadow : 0 0 0 1000px white inset !important;
-    outline            : none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }

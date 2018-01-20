@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import appHistory from "tools/appHistory";
-import { MainApp, HomePage, PageLayout, Glossary, AboutPage } from "./core/components";
+import {
+  Gerrymander,
+  HomePage,
+  PageLayout,
+  Glossary,
+  AboutPage,
+} from "./core/components";
 import ConnectedRouter from "react-router-redux/ConnectedRouter";
 
 const RoutingApp = () => {
@@ -9,10 +15,11 @@ const RoutingApp = () => {
     <ConnectedRouter history={appHistory}>
       <PageLayout>
         <Switch>
-          <Route path="/about" component={AboutPage} />
+          <Route exact path="/" component={Gerrymander} />
+          <Route exact path="/about" component={AboutPage} />
           <Route exact path={"/glossary"} component={Glossary} />
         </Switch>
-       </PageLayout>
+      </PageLayout>
     </ConnectedRouter>
   );
 };

@@ -25,18 +25,36 @@ const Sidebar = ({ classes, children }) => {
     <div>
       <div className={classes.pageNavMain}>
         <ul>
-          <li><a href="/">About</a></li>
-          <li><a href="/">View Your Rep</a></li>
-          <li><a href="/">Learn More</a></li>
-          <li><a href="/">Take Action</a></li>
+          <li>
+            <a href="/">About</a>
+          </li>
+          <li>
+            <a href="/">View Your Rep</a>
+          </li>
+          <li>
+            <a href="/">Learn More</a>
+          </li>
+          <li>
+            <a href="/">Take Action</a>
+          </li>
         </ul>
       </div>
       <div className={classes.pageNavMeta}>
         <ul>
-          <li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/state-government-websites">State Links</a></li>
-        {/* possibly we could do a page for state links if time */}
-          <li><Link to="/glossary">Glossary</Link></li>
-          <li><a href="http://www.redistrictingthenation.com/glossary.aspx">Tell Friends</a></li>
+          <li>
+            <a href="https://www.irs.gov/businesses/small-businesses-self-employed/state-government-websites">
+              State Links
+            </a>
+          </li>
+          {/* possibly we could do a page for state links if time */}
+          <li>
+            <Link to="/glossary">Glossary</Link>
+          </li>
+          <li>
+            <a href="http://www.redistrictingthenation.com/glossary.aspx">
+              Tell Friends
+            </a>
+          </li>
         </ul>
       </div>
     </div>

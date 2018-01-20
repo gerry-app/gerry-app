@@ -1,7 +1,6 @@
 import React from "react";
 import injectSheet from "react-jss";
 import { connect } from "react-redux";
-import { Grid, Row } from "react-bootstrap/lib/";
 
 import Cell from "./Cell";
 import { refreshWindowDimensions } from "../actions";
@@ -22,10 +21,10 @@ class Gerrymander extends React.PureComponent {
         if (districtNum in districts) {
           districts[districtNum] += cell.population;
         } else {
-          console.log(districtNum, cell)
+          console.log(districtNum, cell);
           districts[districtNum] = cell.population;
         }
-      });      
+      });
     });
     this.state = {
       focusedCell: null,
@@ -49,15 +48,15 @@ class Gerrymander extends React.PureComponent {
       districts[`${focusedCell.district}`] += cell.population;
       districts[`${cell.district}`] -= cell.population;
       grid[cell.row][cell.col].district = focusedCell.district;
-      this.setState({ rerender: !this.state.rerender })
+      this.setState({ rerender: !this.state.rerender });
     }
-  }
+  };
 
   render() {
     const { classes } = this.props;
     const { grid } = this.state;
     return (
-      <Grid fluid>
+      <div>
         <table>
           <thead>
             <tr>
@@ -66,14 +65,14 @@ class Gerrymander extends React.PureComponent {
             </tr>
           </thead>
           <tbody>
-          {Object.keys(this.state.districts).map(districtNum => {
-            return (
-              <tr key={districtNum}>
-                <td>{districtNum}</td>
-                <td>{this.state.districts[districtNum]}</td>
-              </tr>
-            );
-          })}
+            {Object.keys(this.state.districts).map(districtNum => {
+              return (
+                <tr key={districtNum}>
+                  <td>{districtNum}</td>
+                  <td>{this.state.districts[districtNum]}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
         {grid.map((row, index) => {
@@ -91,7 +90,7 @@ class Gerrymander extends React.PureComponent {
             </div>
           );
         })}
-      </Grid>
+      </div>
     );
   }
 }
