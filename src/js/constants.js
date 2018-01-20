@@ -65,7 +65,7 @@ export const STATE_CODE_TO_COLOR_INDEX = {
   NJ: 2, // yellow
   NM: 2,
   TX: 3, // red
-  LA: 0, 
+  LA: 0,
   NC: 3,
   ND: 0,
   NE: 2,
