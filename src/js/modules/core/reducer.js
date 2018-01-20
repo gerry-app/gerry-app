@@ -10,7 +10,7 @@ for (let r = 0; r < NUM_ROWS; r++) {
       id: r * NUM_COLS + c,
       district: `NY-${Math.floor(r / 7)}`,
       democrats: 30 + Math.ceil(Math.random() * 30),
-      republicans: 30 + Math.ceil(Math.random() * 0),
+      republicans: 30 + Math.ceil(Math.random() * 30),
       independents: Math.ceil(Math.random() * 10),
       row: r,
       col: c,
