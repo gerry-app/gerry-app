@@ -2,19 +2,23 @@ import React from "react";
 import injectSheet from "react-jss";
 
 const styles = {
+  Glossary: {
+    maxWidth: "940px",
+    margin: "0 auto",
+  },
   term: {
     "& b": {
       fontFamily: "Super Grotesk",
     },
     "& p": {
-      marginBottom: "1em",
+      margin: "0 0 1em 0",
     }
   }
 };
 
 const Glossary = ({ classes }) => {
   return (
-    <div>
+    <div className={classes.Glossary}>
       <div className={classes.term}>
         <b>Compactness</b>
         <p>Refers to extent to which a district's geography is dispersed around its center. Districts should not be too diffuse (i.e., extend too far from the center of the district).</p>
