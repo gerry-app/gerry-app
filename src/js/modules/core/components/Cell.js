@@ -17,23 +17,14 @@ class Cell extends React.Component {
     super(props);
   }
 
-  handleMouseEnter = () => {
-    const { focusedCell, cell } = this.props;
-    if (focusedCell && focusedCell.district !== cell.district) {
-      this.props.updateDistrict(focusedCell.district, cell);
-      cell.district = focusedCell.district;
-      this.forceUpdate();
-    }
-  }
-
   render() {
-    const { classes, cell, focusedCell, onMouseDown, onMouseUp } = this.props;
+    const { classes, cell, focusedCell, onMouseDown, onMouseUp, onMouseEnter } = this.props;
     return (
       <div
         className={classes.Cell}
         onMouseDown={() => onMouseDown(cell)}
         onMouseUp={onMouseUp}
-        onMouseEnter={this.handleMouseEnter}
+        onMouseEnter={() => onMouseEnter(cell)}
         style={{ backgroundColor: cell ? districtColors[cell.district] : "#fff" }}
       />
     );

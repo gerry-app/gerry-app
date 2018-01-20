@@ -40,9 +40,14 @@ class MainApp extends React.PureComponent {
     this.setState({ focusedCell: null });
   };
 
-  updateDistrict = (district, cell) => {
-    this.state.districts[`${district}`] += cell.population;
-    this.state.districts[`${cell.district}`] -= cell.population;
+  handleMouseEnter = cell => {
+    const { focusedCell, districts } = this.state;
+    const { grid } = this.props;
+    if (focusedCell && focusedCell.district !== cell.district) {
+      districts[`${ocusedCell.district}`] += cell.population;
+      districts[`${cell.district}`] -= cell.population;
+      grid[cell.row][cell.col].district = focusedCell.district;
+    }
   }
 
   render() {
@@ -70,12 +75,12 @@ class MainApp extends React.PureComponent {
         {grid.map((row, index) => {
           return (
             <div className={classes.row} key={index}>
-              {row.cells.map((cell, cIndex) => (
+              {row.map((cell, cIndex) => (
                 <Cell
                   focusedCell={this.state.focusedCell}
                   key={cIndex}
                   cell={cell}
-                  updateDistrict={this.updateDistrict}
+                  onMouseEnter={this.handleMouseEnter}
                   onMouseDown={this.handleMouseDown}
                   onMouseUp={this.handleMouseUp}
                 />
