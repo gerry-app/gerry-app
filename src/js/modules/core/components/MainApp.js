@@ -22,6 +22,7 @@ class MainApp extends React.PureComponent {
         if (districtNum in districts) {
           districts[districtNum] += cell.population;
         } else {
+          console.log(districtNum, cell)
           districts[districtNum] = cell.population;
         }
       });      
