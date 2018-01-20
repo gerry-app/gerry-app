@@ -1,14 +1,14 @@
 const initialState = { grid: [], };
 
-const NUM_COLS = 60;
-const NUM_ROWS = 33;
+const NUM_COLS = 4;
+const NUM_ROWS = 4;
 
 for (let r = 0; r < NUM_ROWS; r++) {
   const row = [];
   for (let c = 0; c < NUM_COLS; c++) {
     row.push({
       id: r * NUM_COLS + c,
-      district: r % 5,
+      district: Math.floor(r / 3),
       population: 10,
       row: r,
       col: c

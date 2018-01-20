@@ -10,15 +10,31 @@ const styles = {
   },
 };
 
-const districtColors = ["#D8334A", "#48CFAD", "#4FC1E9", ];
+const districtColors = ["#D8334A", "#48CFAD", "#4FC1E9", "#FFCE54", "#A0D468"];
 
 class Cell extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      district: null,
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (!this.state.district) {
+      this.setState({ district: nextProps.cell.district })
+    }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(this.props.cell.id, this.state.district, nextProps.cell.district);
+    return this.state.district !== nextProps.cell.district;
+    // TODO
   }
 
   render() {
-    const { classes, cell, focusedCell, onMouseDown, onMouseUp, onMouseEnter } = this.props;
+    const { classes, cell, onMouseDown, onMouseUp, onMouseEnter } = this.props;
+    console.log('upate');
     return (
       <div
         className={classes.Cell}

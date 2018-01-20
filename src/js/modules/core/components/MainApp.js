@@ -17,7 +17,7 @@ class MainApp extends React.PureComponent {
     super(props);
     let districts = {};
     this.props.grid.forEach(row => {
-      row.cells.forEach(cell => {
+      row.forEach(cell => {
         const districtNum = `${cell.district}`;
         if (districtNum in districts) {
           districts[districtNum] += cell.population;
@@ -29,6 +29,8 @@ class MainApp extends React.PureComponent {
     this.state = {
       focusedCell: null,
       districts,
+      rerender: true,
+      grid: this.props.grid,
     };
   }
 
@@ -41,17 +43,18 @@ class MainApp extends React.PureComponent {
   };
 
   handleMouseEnter = cell => {
-    const { focusedCell, districts } = this.state;
-    const { grid } = this.props;
+    const { focusedCell, districts, grid } = this.state;
     if (focusedCell && focusedCell.district !== cell.district) {
-      districts[`${ocusedCell.district}`] += cell.population;
+      districts[`${focusedCell.district}`] += cell.population;
       districts[`${cell.district}`] -= cell.population;
       grid[cell.row][cell.col].district = focusedCell.district;
+      this.setState({ rerender: !this.state.rerender })
     }
   }
 
   render() {
-    const { classes, grid } = this.props;
+    const { classes } = this.props;
+    const { grid } = this.state;
     return (
       <Grid fluid>
         <table>
@@ -77,7 +80,6 @@ class MainApp extends React.PureComponent {
             <div className={classes.row} key={index}>
               {row.map((cell, cIndex) => (
                 <Cell
-                  focusedCell={this.state.focusedCell}
                   key={cIndex}
                   cell={cell}
                   onMouseEnter={this.handleMouseEnter}
