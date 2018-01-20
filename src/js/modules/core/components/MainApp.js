@@ -9,7 +9,7 @@ import { refreshWindowDimensions } from "../actions";
 const styles = {
   row: {
     height: "60px",
-  }
+  },
 };
 
 class MainApp extends React.PureComponent {
@@ -20,31 +20,39 @@ class MainApp extends React.PureComponent {
     };
   }
 
-  handleMouseDown = cell => {    
+  handleMouseDown = cell => {
     console.log(cell);
     this.setState({ focusedCell: cell });
-  }
+  };
 
   handleMouseUp = () => {
     this.setState({ focusedCell: null });
-  }
+  };
 
   render() {
     const { classes, grid } = this.props;
     console.log(this.state);
     return (
       <Grid fluid>
-      {grid.map((row, index) => {
-        return (
-          <div className={classes.row} key={index}>
-            {row.cells.map((cell, cIndex) => <Cell focusedCell={this.state.focusedCell} key={cIndex} cell={cell} onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} />)}
-          </div>
-        );
-      })}
+        {grid.map((row, index) => {
+          return (
+            <div className={classes.row} key={index}>
+              {row.cells.map((cell, cIndex) => (
+                <Cell
+                  focusedCell={this.state.focusedCell}
+                  key={cIndex}
+                  cell={cell}
+                  onMouseDown={this.handleMouseDown}
+                  onMouseUp={this.handleMouseUp}
+                />
+              ))}
+            </div>
+          );
+        })}
       </Grid>
     );
   }
-};
+}
 
 const mapStateToProps = state => ({
   grid: state.core.grid,

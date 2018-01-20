@@ -17,18 +17,19 @@ const styles = {
   },
 };
 
-const districtColors = [
-  '#4FC1E9',
-  '#A0CECB',
-  '#7DB1B1',
-];
+const districtColors = ["#4FC1E9", "#A0CECB", "#7DB1B1"];
 
 const Cell = ({ classes, cell, focusedCell, onMouseDown, onMouseUp }) => {
   if (!cell) {
-    return <div className={classes.NullCell}/>
+    return <div className={classes.NullCell} />;
   }
   return (
-    <div className={classes.Cell} onMouseDown={() => onMouseDown(cell)} onMouseUp={onMouseUp} style={{ backgroundColor: districtColors[cell.district] }}/>
+    <div
+      className={classes.Cell}
+      onMouseDown={() => onMouseDown(cell)}
+      onMouseUp={onMouseUp}
+      style={{ backgroundColor: districtColors[cell.district] }}
+    />
   );
 };
 

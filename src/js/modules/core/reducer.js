@@ -17,7 +17,7 @@ const initialState = {
           id: 3,
           district: 1,
           population: 40,
-        }
+        },
       ],
     },
     {
@@ -46,7 +46,7 @@ const initialState = {
     },
     {
       cells: [
-        null,        
+        null,
         {
           id: 5,
           district: 1,
@@ -66,7 +66,7 @@ const initialState = {
           id: 9,
           district: 2,
           population: 40,
-        }
+        },
       ],
     },
   ],
