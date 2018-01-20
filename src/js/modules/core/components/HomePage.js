@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const styles = {};
 
 const HomePage = ({ classes }) => {
-  return <div>i'm honme!</div>;
+  return <Link to="/state/NY">enter NY</Link>;
 };
 
 export default injectSheet(styles)(HomePage);

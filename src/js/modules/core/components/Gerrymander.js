@@ -1,6 +1,7 @@
 import React from "react";
 import injectSheet from "react-jss";
 import { connect } from "react-redux";
+import { Helmet } from "react-helmet";
 
 import Cell from "./Cell";
 import Dashboard from "./Dashboard";
@@ -75,6 +76,9 @@ class Gerrymander extends React.PureComponent {
     const { grid, districts } = this.state;
     return (
       <div className={classes.Gerrymander}>
+        <Helmet>
+          <title>The Stuyvesant Spectator</title>
+        </Helmet>
         <div className={classes.grid}>          
           {grid.map((row, index) => {
             return (

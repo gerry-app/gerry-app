@@ -99,7 +99,7 @@ const PageLayout = ({ classes, children, location }) => {
           </li>
         </ul>
       </div>
-      <div className={classes.pageContent} style={{ backgroundColor: location.pathname === "/" ? "aliceblue" : "#fff" }}>{children}</div>
+      <div className={classes.pageContent} style={{ backgroundColor: location.pathname.includes("/state/") ? "aliceblue" : "#fff" }}>{children}</div>
     </div>
   );
 };
