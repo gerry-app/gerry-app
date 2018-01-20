@@ -8,7 +8,7 @@ import { refreshWindowDimensions } from "../actions";
 
 const styles = {
   row: {
-    height: "30px",
+    height: "20px",
   },
 };
 
@@ -17,8 +17,6 @@ class MainApp extends React.PureComponent {
     super(props);
     this.state = {
       focusedCell: null,
-      district: [
-      ]
     };
   }
 

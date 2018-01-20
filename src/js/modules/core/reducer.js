@@ -1,10 +1,13 @@
 const initialState = { grid: [], };
 
-for (let i = 0; i < 10; i++) {
+const NUM_COLS = 60;
+const NUM_ROWS = 33;
+
+for (let i = 0; i < NUM_ROWS / 2; i++) {
   const leftCells = [];
-  for (let j = 0; j < 20; j++) {
+  for (let j = 0; j < NUM_COLS; j++) {
     leftCells.push({
-      id: i*20 + j,
+      id: i*NUM_COLS + j,
       district: 0,
       population: 10,
     });
@@ -14,11 +17,11 @@ for (let i = 0; i < 10; i++) {
   })
 }
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < NUM_ROWS / 2; i++) {
   const rightCells = [];
-  for (let j = 0; j < 20; j++) {
+  for (let j = 0; j < NUM_COLS; j++) {
     rightCells.push({
-      id: i*20 + j + 20,
+      id: i*NUM_COLS + j + NUM_COLS,
       district: 1,
       population: 10,
     });

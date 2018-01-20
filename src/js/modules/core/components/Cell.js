@@ -4,31 +4,39 @@ import injectSheet from "react-jss";
 const styles = {
   Cell: {
     display: "inline-block",
-    height: "30px",
-    width: "30px",
+    height: "20px",
+    width: "20px",
     userSelect: "none",
   },
 };
 
-const districtColors = ["#A0CECB", "#7DB1B1", "#4FC1E9", ];
+const districtColors = ["#D8334A", "#48CFAD", "#4FC1E9", ];
 
-const Cell = ({ classes, cell, focusedCell, onMouseDown, onMouseUp }) => {
-  const handleMouseEnter = () => {
+class Cell extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  handleMouseEnter = () => {
+    const { focusedCell, cell } = this.props;
     if (focusedCell && focusedCell.district !== cell.district) {
-      console.log('changed cell')
       cell.district = focusedCell.district;
+      this.forceUpdate();
     }
   }
 
-  return (
-    <div
-      className={classes.Cell}
-      onMouseDown={() => onMouseDown(cell)}
-      onMouseUp={onMouseUp}
-      onMouseEnter={handleMouseEnter}
-      style={{ backgroundColor: cell ? districtColors[cell.district] : "#fff" }}
-    />
-  );
+  render() {
+    const { classes, cell, focusedCell, onMouseDown, onMouseUp } = this.props;
+    return (
+      <div
+        className={classes.Cell}
+        onMouseDown={() => onMouseDown(cell)}
+        onMouseUp={onMouseUp}
+        onMouseEnter={this.handleMouseEnter}
+        style={{ backgroundColor: cell ? districtColors[cell.district] : "#fff" }}
+      />
+    );
+  }
 };
 
 export default injectSheet(styles)(Cell);
