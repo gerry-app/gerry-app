@@ -10,7 +10,15 @@ import { STATE_CODE_TO_NAME } from "../../../constants";
 import { Gerrymander } from "./";
 import { getStateGrid } from "../actions";
 
-const styles = {
+const styles = {  
+  sexy: {
+    fontFamily: "Atlas Grotesk",
+    fontWeight: 300,
+    fontSize: "11px",
+    marginLeft: "40px",
+    marginTop: "20px",
+    textTransform: "uppercase",
+  },
 };
 
 class DistrictsPage extends React.Component {
@@ -18,7 +26,7 @@ class DistrictsPage extends React.Component {
     super(props);
     this.state = {      
       open: true,
-    }
+    };
   }
 
   componentDidMount() {
@@ -34,10 +42,12 @@ class DistrictsPage extends React.Component {
   };
 
   render() {
-    const { isFetching, error, grid, match } = this.props;
+    const { isFetching, error, grid, match, classes } = this.props;
     const { open } = this.state;
-    if (isFetching || error) {
-      return null;
+    if (error) {
+      return <p className={classes.sexy}>We have encountered an error.</p>;
+    } else if (isFetching) {
+      return <p className={classes.sexy}>Loading...</p>;
     }
     const modalActions = [
       <FlatButton
@@ -55,7 +65,7 @@ class DistrictsPage extends React.Component {
         {grid && (
           <div>
             <Dialog
-              title={`Mission: ${stateName} Partisan Gerrymander`}
+              title={`Visualization: ${stateName} Redistricted Map`}
               actions={modalActions}
               modal={false}
               open={open}

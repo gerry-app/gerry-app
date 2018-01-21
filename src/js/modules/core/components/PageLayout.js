@@ -42,6 +42,9 @@ const styles = {
         letterSpacing: "0.2em",
         textTransform: "uppercase",
         paddingLeft: "0.35em",
+        "&:hover": {
+          textDecoration: "underline",
+        },
       },
     },
   },
@@ -52,6 +55,9 @@ const styles = {
       "& > a": {
         textDecoration: "none",
         paddingLeft: "0.35em",
+        "&:hover": {
+          textDecoration: "underline",
+        },
       },
     },
   },
@@ -92,6 +98,9 @@ const PageLayout = ({ classes, children, location }) => {
             <a href="https://ballotpedia.org/State-by-state_redistricting_procedures">How My State Does It</a>
           </li>
           <li>
+            <a href="https://github.com/gerry-manders">GitHub</a>
+          </li>
+          <li>
             <a href="http://www.redistrictingthenation.com/glossary.aspx">
               Tell Friends
             </a>
@@ -101,7 +110,7 @@ const PageLayout = ({ classes, children, location }) => {
       <div
         className={classes.pageContent}
         style={{
-          backgroundColor: (location.pathname.includes("/state/") || location.pathname === "/")
+          backgroundColor: (location.pathname.includes("/state/") || location.pathname === "/" || location.pathname === "/mission")
             ? "aliceblue"
             : "#fff",
         }}

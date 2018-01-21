@@ -1,7 +1,7 @@
 import React from "react";
 import injectSheet from "react-jss";
 import { connect } from "react-redux";
-
+import { Link } from "react-router-dom";
 import Cell from "./Cell";
 import Dashboard from "./Dashboard";
 import { CELL_SIZE, GET_DISTRICT_COLOR, STATE_CODE_TO_NAME } from "../../../constants";
@@ -24,13 +24,18 @@ const styles = {
   row: {
     height: CELL_SIZE,
   },
+  usaLink: {
+    color: "#000",
+    "&:hover, &:active, &:visited": {
+      color: "#000",
+    },
+  },
 };
 
 class Gerrymander extends React.PureComponent {
   constructor(props) {
     super(props);
     let districts = {};
-    console.log(this.props.grid);
     this.props.grid.forEach(row => {
       row.forEach(cell => {
         if (cell) {
@@ -84,7 +89,7 @@ class Gerrymander extends React.PureComponent {
     return (      
       <div className={classes.Gerrymander}>
         <div className={classes.grid}>
-          <p className={classes.sexy}>{STATE_CODE_TO_NAME[match.params.state_code]}</p>
+          <p className={classes.sexy}><Link to="/" className={classes.usaLink}>The United States of America</Link> {">"} {STATE_CODE_TO_NAME[match.params.state_code]}</p>
           {grid.map((row, index) => {
             return (
               <div className={classes.row} key={index}>

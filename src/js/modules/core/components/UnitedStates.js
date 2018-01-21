@@ -2,7 +2,7 @@ import React from "react";
 import injectSheet from "react-jss";
 import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 import State from "./State";
 import Dashboard from "./Dashboard";
@@ -13,7 +13,10 @@ const styles = {
   grid: {
     width: "920px",
     margin: "0 auto",
-    marginTop: "90px",
+    marginTop: "40px",
+    "&:hover": {
+      cursor: "pointer",
+    },
   },
   row: {
     height: CELL_SIZE,
@@ -24,13 +27,18 @@ const styles = {
     fontSize: "16px",
     textAlign: "center",
   },
+  or: {
+    fontFamily: "Atlas Grotesk",
+    fontSize: "16px",
+    textAlign: "center",
+  },
 };
 
 class UnitedStates extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hoveredState: "",
+      hoveredState: "The United States of America",
     };
   }
 
@@ -45,7 +53,7 @@ class UnitedStates extends React.Component {
   }
 
   handleOnMouseLeave = () => {
-    // this.setState({ hoveredState: "", });
+    this.setState({ hoveredState: "The United States of America", });
   }
 
   render() {
@@ -55,8 +63,8 @@ class UnitedStates extends React.Component {
         <Helmet>
           <title>The Gerry App</title>
         </Helmet>
-        <p className={classes.currentState}>| {this.state.hoveredState} |</p>
-        <div className={classes.grid}>
+        <p className={classes.currentState}>Explore {this.state.hoveredState}.</p>
+        <div className={classes.grid} onMouseLeave={this.handleOnMouseLeave}>
           {grid.map((row, index) => {
             return (
               <div className={classes.row} key={index}>
@@ -65,7 +73,6 @@ class UnitedStates extends React.Component {
                     key={sIndex}
                     state={state}
                     onMouseEnter={this.handleOnMouseEnter}
-                    onMouseLeave={this.handleOnMouseLeave}
                     onClick={this.handleOnClick}
                   />
                 ))}
@@ -73,6 +80,7 @@ class UnitedStates extends React.Component {
             );
           })}
         </div>
+        <p className={classes.or}><i>Or</i> play our <Link to="/mission" className={classes.mission}>mission</Link>...</p>
       </div>
     );
   }

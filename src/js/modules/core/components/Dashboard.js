@@ -15,7 +15,10 @@ const styles = {
   badge: {
     boxSizing: "border-box",
     color: "#fff",
-  }
+  },
+  highlighted: {
+    fontWeight: 700,
+  },
 };
 
 const Dashboard = ({ classes, districts, focusedDistrict }) => {
@@ -25,10 +28,9 @@ const Dashboard = ({ classes, districts, focusedDistrict }) => {
         <thead>
           <tr>
             <th>District</th>
-            <th>Population</th>
-            <th>DEM %</th>
-            <th>REP %</th>
-            <th>IND %</th>
+            <th>DEM</th>
+            <th>REP</th>
+            <th>IND</th>
           </tr>
         </thead>
         <tbody>
@@ -46,9 +48,8 @@ const Dashboard = ({ classes, districts, focusedDistrict }) => {
                 >
                   {districtCode}
                 </td>
-                <td>{population}</td>
-                <td>{Math.round(district.democrats / population * 100)}%</td>
-                <td>{Math.round(district.republicans / population * 100)}%</td>
+                <td className={district.democrats / population > .5 && classes.highlighted}>{Math.round(district.democrats / population * 100)}%</td>
+                <td className={district.republicans / population > .5 && classes.highlighted}>{Math.round(district.republicans / population * 100)}%</td>
                 <td>{Math.round(district.independents / population * 100)}%</td>
               </tr>
             );

@@ -5,4 +5,5 @@ export { default as Glossary } from "./Glossary";
 export { default as PageLayout } from "./PageLayout";
 export { default as AboutPage } from "./AboutPage";
 export { default as Dashboard } from "./Dashboard";
+export { default as MissionPage } from "./MissionPage";
 export { default as UnitedStates } from "./UnitedStates";
