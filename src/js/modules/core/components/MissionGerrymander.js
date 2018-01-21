@@ -84,7 +84,7 @@ class MissionGerrymander extends React.PureComponent {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, mission } = this.props;
     const { grid, districts, focusedCell } = this.state;
     return (      
       <div className={classes.MissionGerrymander}>
@@ -110,7 +110,7 @@ class MissionGerrymander extends React.PureComponent {
             );
           })}
         </div>
-        <Dashboard districts={districts} focusedDistrict={focusedCell && focusedCell.dis} />
+        <Dashboard districts={districts} focusedDistrict={focusedCell && focusedCell.dis} mission={mission}/>
       </div>
     );
   }

@@ -7,7 +7,8 @@ import {
   PageLayout,
   Glossary,
   AboutPage,
-  MissionPage
+  MissionPage,
+  PopulationPage
 } from "./core/components";
 import ConnectedRouter from "react-router-redux/ConnectedRouter";
 
@@ -20,7 +21,8 @@ const RoutingApp = () => {
           <Route exact path="/state/:state_code" component={DistrictsPage} />
           <Route exact path="/about" component={AboutPage} />
           <Route exact path="/glossary" component={Glossary} />
-          <Route exact path="/mission" component={MissionPage} />
+          <Route exact path="/mission/partisan" component={MissionPage} />
+          <Route exact path="/mission/population" component={PopulationPage} />
         </Switch>
       </PageLayout>
     </ConnectedRouter>

@@ -6,4 +6,5 @@ export { default as PageLayout } from "./PageLayout";
 export { default as AboutPage } from "./AboutPage";
 export { default as Dashboard } from "./Dashboard";
 export { default as MissionPage } from "./MissionPage";
+export { default as PopulationPage } from "./PopulationPage";
 export { default as UnitedStates } from "./UnitedStates";

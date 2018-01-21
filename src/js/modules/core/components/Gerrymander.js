@@ -90,25 +90,27 @@ class Gerrymander extends React.PureComponent {
       <div className={classes.Gerrymander}>
         <div className={classes.grid}>
           <p className={classes.sexy}><Link to="/" className={classes.usaLink}>The United States of America</Link> {">"} {STATE_CODE_TO_NAME[match.params.state_code]}</p>
-          {grid.map((row, index) => {
-            return (
-              <div className={classes.row} key={index}>
-                {row.map((cell, cIndex) => {
-                  if (cIndex % 2 == 0) {
-                    return (
-                      <Cell
-                        key={cIndex}
-                        cell={cell}
-                        onMouseEnter={this.handleMouseEnter}
-                        onMouseDown={this.handleMouseDown}
-                        onMouseUp={this.handleMouseUp}
-                      />
-                    );
-                  }
-                })}
-              </div>
-            );
-          })}
+          {
+            grid.map((row, index) => {
+              return (
+                <div className={classes.row} key={index}>
+                  {row.map((cell, cIndex) => {
+                    if (cIndex % 2 == 0) {
+                      return (
+                        <Cell
+                          key={cIndex}
+                          cell={cell}
+                          onMouseEnter={this.handleMouseEnter}
+                          onMouseDown={this.handleMouseDown}
+                          onMouseUp={this.handleMouseUp}
+                        />
+                      );
+                    }
+                  })}
+                </div>
+              );
+            })
+          }
         </div>
         <Dashboard districts={districts} focusedDistrict={focusedCell && focusedCell.dis} />
       </div>

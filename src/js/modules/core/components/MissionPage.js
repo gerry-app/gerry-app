@@ -2,7 +2,7 @@ import React from "react";
 import injectSheet from "react-jss";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
@@ -19,7 +19,20 @@ const styles = {
     marginTop: "20px",
     textTransform: "uppercase",
   },
+  task: {
+    display: "block",
+    marginTop: "12px",
+  },
+  or: {
+    fontFamily: "Atlas Grotesk",
+    fontSize: "13px",
+    display: "block",
+    marginTop: "30px",
+    textAlign: "center",
+  },
 };
+
+const abbrv = 'AR';
 
 class MissionPage extends React.Component {
   constructor(props) {
@@ -30,7 +43,7 @@ class MissionPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getStateGrid('AR');
+    this.props.getStateGrid(abbrv);
   }
 
   handleModalOpen = () => {
@@ -59,12 +72,12 @@ class MissionPage extends React.Component {
     return (
       <div>
         <Helmet>
-          <title>Mission</title>
+          <title>{`Mission in ${STATE_CODE_TO_NAME[abbrv]}`}</title>
         </Helmet>
         {grid && (
           <div>
             <Dialog
-              title={`Mission: Partisan Gerrymander`}
+              title={`Mission 2: Partisan Gerrymander`}
               actions={modalActions}
               modal={false}
               open={open}
@@ -75,10 +88,12 @@ class MissionPage extends React.Component {
               Spreading like-minded voters apart across multiple districts to dilute their voting power in each. This denies the group representation in multiple districts.<br/>
               <b>Packing - </b>
 Concentrating like-minded voters together in one district to reduce their voting power in other districts. This gives the group representation in a single district while denying them representation across districts.
+<u className={classes.task}>Task: Try to give the Democrats an advantage in this sate. Do you expect it to be hard?</u>
             </Dialog>
             <MissionGerrymander grid={grid} />
           </div>
         )}
+        <Link to="/glossary" className={classes.or}>See the glossary.</Link>
       </div>
     );
   }

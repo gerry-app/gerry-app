@@ -80,7 +80,7 @@ class UnitedStates extends React.Component {
             );
           })}
         </div>
-        <p className={classes.or}><i>Or</i> play our <Link to="/mission" className={classes.mission}>mission</Link>...</p>
+        <p className={classes.or}><i>Or</i> play our <Link to="/mission/population" className={classes.mission}>mission</Link>...</p>
       </div>
     );
   }
