@@ -25,13 +25,13 @@ class Cell extends React.Component {
 
   componentWillMount() {
     if (!this.state.district) {
-      this.setState({ district: this.props.cell.district });
+      this.setState({ district: this.props.cell.dis });
     }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (this.state.district !== nextProps.cell.district) {
-      this.state.district = nextProps.cell.district;
+    if (this.state.district !== nextProps.cell.dis) {
+      this.state.district = nextProps.cell.dis;
       return true;
     }
     return false;
@@ -46,7 +46,7 @@ class Cell extends React.Component {
         onMouseUp={onMouseUp}
         onMouseEnter={() => onMouseEnter(cell)}
         style={{
-          backgroundColor: cell ? GET_DISTRICT_COLOR(cell.district) : "#fff",
+          backgroundColor: cell ? GET_DISTRICT_COLOR(cell.dis) : "#fff",
         }}
       />
     );

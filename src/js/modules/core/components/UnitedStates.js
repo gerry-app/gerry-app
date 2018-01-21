@@ -55,7 +55,7 @@ class UnitedStates extends React.Component {
         <Helmet>
           <title>The Gerry App</title>
         </Helmet>
-        <p className={classes.currentState}>&mdash; {this.state.hoveredState} &mdash;</p>
+        <p className={classes.currentState}>| {this.state.hoveredState} |</p>
         <div className={classes.grid}>
           {grid.map((row, index) => {
             return (

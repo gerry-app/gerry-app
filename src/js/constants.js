@@ -1,3 +1,5 @@
+export const API_ENDPOINT = "http://asdf";
+
 export const CELL_SIZE = "15px";
 
 export const STATE_CODE_TO_NAME = {
