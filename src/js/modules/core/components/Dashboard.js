@@ -15,6 +15,7 @@ const styles = {
 };
 
 const Dashboard = ({ classes, districts }) => {
+  console.log(districts);
   return (
     <div>
       <table className={classes.status}>

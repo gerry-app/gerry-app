@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import Cell from "./Cell";
 import Dashboard from "./Dashboard";
 import { CELL_SIZE, GET_DISTRICT_COLOR, STATE_CODE_TO_NAME } from "../../../constants";
-import { getStateGrid } from "../selectors";
 
 const styles = {
   Gerrymander: {
@@ -32,18 +31,21 @@ class Gerrymander extends React.PureComponent {
   constructor(props) {
     super(props);
     let districts = {};
+    console.log(this.props.grid);
     this.props.grid.forEach(row => {
       row.forEach(cell => {
-        if (cell.dis in districts) {
-          districts[cell.dis].democrats += cell.D;
-          districts[cell.dis].republicans += cell.R;
-          districts[cell.dis].independents += cell.I;
-        } else {
-          districts[cell.district] = {
-            democrats: cell.D,
-            republicans: cell.R,
-            independents: cell.I,
-          };
+        if (cell) {
+          if (cell.dis in districts) {
+            districts[cell.dis].democrats += cell.D;
+            districts[cell.dis].republicans += cell.R;
+            districts[cell.dis].independents += cell.I;
+          } else {
+            districts[cell.dis] = {
+              democrats: cell.D,
+              republicans: cell.R,
+              independents: cell.I,
+            };
+          }
         }
       });
     });
@@ -106,8 +108,4 @@ class Gerrymander extends React.PureComponent {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  grid: getStateGrid(state, ownProps),
-});
-
-export default connect(mapStateToProps)(injectSheet(styles)(Gerrymander));
+export default injectSheet(styles)(Gerrymander);

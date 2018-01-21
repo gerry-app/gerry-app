@@ -1,6 +1,5 @@
 import { STATE_CODE_TO_NAME } from "./constants";
 import { USA } from "./data/usa";
-import { STATES } from "./data/states";
 
 import {
   FETCH_STATE_DATA_PENDING,
@@ -38,7 +37,7 @@ const reducer = (state = { ...initialState }, action) => {
       return {
         ...state,
         isFetching: false,
-        stateGrid: action.payload.data,
+        stateGrid: action.payload,
       };
     }
     case FETCH_STATE_DATA_REJECTED: {

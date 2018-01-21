@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import appHistory from "tools/appHistory";
 import {
-  Gerrymander,
+  DistrictsPage,
   HomePage,
   PageLayout,
   Glossary,
@@ -16,7 +16,7 @@ const RoutingApp = () => {
       <PageLayout>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/state/:state_code" component={Gerrymander} />
+          <Route exact path="/state/:state_code" component={DistrictsPage} />
           <Route exact path="/about" component={AboutPage} />
           <Route exact path="/glossary" component={Glossary} />
         </Switch>

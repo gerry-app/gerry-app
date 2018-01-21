@@ -4,6 +4,7 @@ import { CELL_SIZE, GET_DISTRICT_COLOR } from "../../../constants";
 
 const styles = {
   Cell: {
+    background: "aliceblue",
     display: "inline-block",
     height: CELL_SIZE,
     width: CELL_SIZE,
@@ -25,11 +26,14 @@ class Cell extends React.Component {
 
   componentWillMount() {
     if (!this.state.district) {
-      this.setState({ district: this.props.cell.dis });
+      this.setState({ district: this.props.cell && this.props.cell.dis });
     }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
+    if (!nextProps.cell) {
+      return false;
+    }
     if (this.state.district !== nextProps.cell.dis) {
       this.state.district = nextProps.cell.dis;
       return true;
@@ -39,6 +43,11 @@ class Cell extends React.Component {
 
   render() {
     const { classes, cell, onMouseDown, onMouseUp, onMouseEnter } = this.props;
+    if (!cell) {
+      return (
+        <div className={classes.Cell} />
+      );
+    }
     return (
       <div
         className={classes.Cell}
@@ -46,7 +55,7 @@ class Cell extends React.Component {
         onMouseUp={onMouseUp}
         onMouseEnter={() => onMouseEnter(cell)}
         style={{
-          backgroundColor: cell ? GET_DISTRICT_COLOR(cell.dis) : "#fff",
+          backgroundColor: GET_DISTRICT_COLOR(cell.dis)
         }}
       />
     );
