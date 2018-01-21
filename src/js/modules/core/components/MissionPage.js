@@ -32,7 +32,7 @@ const styles = {
   },
 };
 
-const abbrv = 'AR';
+const abbrv = 'OR';
 
 class MissionPage extends React.Component {
   constructor(props) {
