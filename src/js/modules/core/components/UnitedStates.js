@@ -6,7 +6,11 @@ import { withRouter, Link } from "react-router-dom";
 
 import State from "./State";
 import Dashboard from "./Dashboard";
-import { CELL_SIZE, GET_DISTRICT_COLOR, STATE_CODE_TO_NAME } from "../../../constants";
+import {
+  CELL_SIZE,
+  GET_DISTRICT_COLOR,
+  STATE_CODE_TO_NAME,
+} from "../../../constants";
 import { refreshWindowDimensions } from "../actions";
 
 const styles = {
@@ -44,17 +48,17 @@ class UnitedStates extends React.Component {
 
   handleOnClick = state => {
     this.props.history.push(`/state/${state.code}`);
-  }
+  };
 
   handleOnMouseEnter = state => {
     if (STATE_CODE_TO_NAME[state.code] !== this.state.hoveredState) {
-      this.setState({ hoveredState: STATE_CODE_TO_NAME[state.code], });
+      this.setState({ hoveredState: STATE_CODE_TO_NAME[state.code] });
     }
-  }
+  };
 
   handleOnMouseLeave = () => {
-    this.setState({ hoveredState: "The United States of America", });
-  }
+    this.setState({ hoveredState: "The United States of America" });
+  };
 
   render() {
     const { classes, grid, history } = this.props;
@@ -63,7 +67,9 @@ class UnitedStates extends React.Component {
         <Helmet>
           <title>The Gerry App</title>
         </Helmet>
-        <p className={classes.currentState}>Explore {this.state.hoveredState}.</p>
+        <p className={classes.currentState}>
+          Explore {this.state.hoveredState}.
+        </p>
         <div className={classes.grid} onMouseLeave={this.handleOnMouseLeave}>
           {grid.map((row, index) => {
             return (
@@ -80,14 +86,21 @@ class UnitedStates extends React.Component {
             );
           })}
         </div>
-        <p className={classes.or}><i>Or</i> play our <Link to="/mission/population" className={classes.mission}>mission</Link>...</p>
+        <p className={classes.or}>
+          <i>Or</i> play our{" "}
+          <Link to="/mission/population" className={classes.mission}>
+            mission
+          </Link>...
+        </p>
       </div>
     );
   }
-};
+}
 
 const mapStateToProps = state => ({
   grid: state.core.unitedStatesGrid,
 });
 
-export default withRouter(connect(mapStateToProps)(injectSheet(styles)(UnitedStates)));
+export default withRouter(
+  connect(mapStateToProps)(injectSheet(styles)(UnitedStates)),
+);

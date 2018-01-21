@@ -9,7 +9,7 @@ const styles = {};
 
 const HomePage = ({ classes }) => {
   return (
-    <div>      
+    <div>
       <Helmet>
         <title>The Gerry App</title>
       </Helmet>

@@ -19,7 +19,7 @@ const styles = {
   highlighted: {
     textDecoration: "underline",
   },
-  a:{}
+  a: {},
 };
 
 const Dashboard = ({ classes, districts, focusedDistrict, mission }) => {
@@ -37,13 +37,19 @@ const Dashboard = ({ classes, districts, focusedDistrict, mission }) => {
             {Object.keys(districts).map(districtCode => {
               const district = districts[districtCode];
               const population =
-                district.democrats + district.republicans + district.independents;
+                district.democrats +
+                district.republicans +
+                district.independents;
               return (
                 <tr key={districtCode} className={classes.tableRow}>
-                  <td className={classes.badge}
+                  <td
+                    className={classes.badge}
                     style={{
                       background: GET_DISTRICT_COLOR(districtCode),
-                      border: districtCode === focusedDistrict ? "3px solid #000" : "none",
+                      border:
+                        districtCode === focusedDistrict
+                          ? "3px solid #000"
+                          : "none",
                     }}
                   >
                     {districtCode}
@@ -75,16 +81,40 @@ const Dashboard = ({ classes, districts, focusedDistrict, mission }) => {
               district.democrats + district.republicans + district.independents;
             return (
               <tr key={districtCode} className={classes.tableRow}>
-                <td className={classes.badge}
+                <td
+                  className={classes.badge}
                   style={{
                     background: GET_DISTRICT_COLOR(districtCode),
-                    border: districtCode === focusedDistrict ? "3px solid #000" : "none",
+                    border:
+                      districtCode === focusedDistrict
+                        ? "3px solid #000"
+                        : "none",
                   }}
                 >
                   {districtCode}
                 </td>
-                <td className={(district.democrats / population > .52) ? classes.highlighted : classes.a}>{Math.round(district.democrats / population * 100)}%</td>
-                <td className={(district.republicans / population > .52) ? classes.highlighted : classes.a}>{Math.round(district.republicans / population * 100)}%</td>
+                <td
+                  className={
+                    district.democrats / population > 0.52 ? (
+                      classes.highlighted
+                    ) : (
+                      classes.a
+                    )
+                  }
+                >
+                  {Math.round(district.democrats / population * 100)}%
+                </td>
+                <td
+                  className={
+                    district.republicans / population > 0.52 ? (
+                      classes.highlighted
+                    ) : (
+                      classes.a
+                    )
+                  }
+                >
+                  {Math.round(district.republicans / population * 100)}%
+                </td>
                 <td>{Math.round(district.independents / population * 100)}%</td>
               </tr>
             );

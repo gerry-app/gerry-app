@@ -1,13 +1,12 @@
 import React from "react";
 import injectSheet from "react-jss";
-import { CELL_SIZE, GET_DISTRICT_COLOR, STATE_CODE_TO_COLOR_INDEX } from "../../../constants";
+import {
+  CELL_SIZE,
+  GET_DISTRICT_COLOR,
+  STATE_CODE_TO_COLOR_INDEX,
+} from "../../../constants";
 
-const stateColors = [
-  "#D8334A",
-  "#48CFAD",
-  "#4FC1E9",
-  "#FFCE54",
-];
+const stateColors = ["#D8334A", "#48CFAD", "#4FC1E9", "#FFCE54"];
 
 const styles = {
   State: {
@@ -21,7 +20,7 @@ const styles = {
 
 const State = ({ classes, state, onClick, onMouseEnter, onMouseLeave }) => {
   if (!state) {
-    return <div className={classes.State} />
+    return <div className={classes.State} />;
   }
   return (
     <div

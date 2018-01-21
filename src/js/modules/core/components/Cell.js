@@ -44,9 +44,7 @@ class Cell extends React.Component {
   render() {
     const { classes, cell, onMouseDown, onMouseUp, onMouseEnter } = this.props;
     if (!cell) {
-      return (
-        <div className={classes.Cell} />
-      );
+      return <div className={classes.Cell} />;
     }
     return (
       <div
@@ -55,7 +53,7 @@ class Cell extends React.Component {
         onMouseUp={onMouseUp}
         onMouseEnter={() => onMouseEnter(cell)}
         style={{
-          backgroundColor: GET_DISTRICT_COLOR(cell.dis)
+          backgroundColor: GET_DISTRICT_COLOR(cell.dis),
         }}
       />
     );

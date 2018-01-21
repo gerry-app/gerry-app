@@ -114,8 +114,10 @@ const DISTRICT_COLORS = [
   "#BAA286",
   "#5D9CEC",
   "#EC87C0",
-  "#8E8271",  
+  "#8E8271",
 ];
 
 export const GET_DISTRICT_COLOR = districtCode =>
-  DISTRICT_COLORS[parseInt(districtCode.split("-")[1]) % DISTRICT_COLORS.length];
+  DISTRICT_COLORS[
+    parseInt(districtCode.split("-")[1]) % DISTRICT_COLORS.length
+  ];

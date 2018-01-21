@@ -4,7 +4,11 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Cell from "./Cell";
 import Dashboard from "./Dashboard";
-import { CELL_SIZE, GET_DISTRICT_COLOR, STATE_CODE_TO_NAME } from "../../../constants";
+import {
+  CELL_SIZE,
+  GET_DISTRICT_COLOR,
+  STATE_CODE_TO_NAME,
+} from "../../../constants";
 
 const styles = {
   MissionGerrymander: {
@@ -86,10 +90,15 @@ class MissionGerrymander extends React.PureComponent {
   render() {
     const { classes, mission } = this.props;
     const { grid, districts, focusedCell } = this.state;
-    return (      
+    return (
       <div className={classes.MissionGerrymander}>
         <div className={classes.grid}>
-          <p className={classes.sexy}><Link to="/" className={classes.usaLink}>The United States of America</Link> {">"} Mission</p>
+          <p className={classes.sexy}>
+            <Link to="/" className={classes.usaLink}>
+              The United States of America
+            </Link>{" "}
+            {">"} Mission
+          </p>
           {grid.map((row, index) => {
             return (
               <div className={classes.row} key={index}>
@@ -110,7 +119,11 @@ class MissionGerrymander extends React.PureComponent {
             );
           })}
         </div>
-        <Dashboard districts={districts} focusedDistrict={focusedCell && focusedCell.dis} mission={mission}/>
+        <Dashboard
+          districts={districts}
+          focusedDistrict={focusedCell && focusedCell.dis}
+          mission={mission}
+        />
       </div>
     );
   }

@@ -95,7 +95,9 @@ const PageLayout = ({ classes, children, location }) => {
             </a>
           </li>
           <li>
-            <a href="https://ballotpedia.org/State-by-state_redistricting_procedures">How My State Does It</a>
+            <a href="https://ballotpedia.org/State-by-state_redistricting_procedures">
+              How My State Does It
+            </a>
           </li>
           <li>
             <a href="https://github.com/gerry-manders">GitHub</a>
@@ -110,9 +112,12 @@ const PageLayout = ({ classes, children, location }) => {
       <div
         className={classes.pageContent}
         style={{
-          backgroundColor: (location.pathname.includes("/state/") || location.pathname.includes("/mission/") || location.pathname === "/")
-            ? "aliceblue"
-            : "#fff",
+          backgroundColor:
+            location.pathname.includes("/state/") ||
+            location.pathname.includes("/mission/") ||
+            location.pathname === "/"
+              ? "aliceblue"
+              : "#fff",
         }}
       >
         {children}

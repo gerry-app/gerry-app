@@ -4,13 +4,13 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
+import Dialog from "material-ui/Dialog";
+import FlatButton from "material-ui/FlatButton";
 import { STATE_CODE_TO_NAME } from "../../../constants";
 import { Gerrymander } from "./";
 import { getStateGrid } from "../actions";
 
-const styles = {  
+const styles = {
   sexy: {
     fontFamily: "Atlas Grotesk",
     fontWeight: 300,
@@ -24,7 +24,7 @@ const styles = {
 class DistrictsPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {      
+    this.state = {
       open: true,
     };
   }
@@ -34,11 +34,11 @@ class DistrictsPage extends React.Component {
   }
 
   handleModalOpen = () => {
-    this.setState({open: true});
+    this.setState({ open: true });
   };
 
   handleModalClose = () => {
-    this.setState({open: false});
+    this.setState({ open: false });
   };
 
   render() {
@@ -56,7 +56,7 @@ class DistrictsPage extends React.Component {
         onClick={this.handleModalClose}
       />,
     ];
-    const stateName = STATE_CODE_TO_NAME[match.params.state_code]
+    const stateName = STATE_CODE_TO_NAME[match.params.state_code];
     return (
       <div>
         <Helmet>
@@ -79,7 +79,7 @@ class DistrictsPage extends React.Component {
       </div>
     );
   }
-};
+}
 
 const mapStateToProps = state => ({
   grid: state.core.stateGrid,
@@ -91,4 +91,8 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators({ getStateGrid }, dispatch);
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(injectSheet(styles)(DistrictsPage)));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(
+    injectSheet(styles)(DistrictsPage),
+  ),
+);

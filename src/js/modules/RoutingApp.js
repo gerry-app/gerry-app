@@ -8,7 +8,7 @@ import {
   Glossary,
   AboutPage,
   MissionPage,
-  PopulationPage
+  PopulationPage,
 } from "./core/components";
 import ConnectedRouter from "react-router-redux/ConnectedRouter";
 

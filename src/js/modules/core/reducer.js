@@ -7,7 +7,7 @@ import {
   FETCH_STATE_DATA_FULFILLED,
 } from "./actionTypes";
 
-const initialState = { 
+const initialState = {
   isFetching: false,
   error: null,
   stateGrid: null,
@@ -41,7 +41,7 @@ const reducer = (state = { ...initialState }, action) => {
       };
     }
     case FETCH_STATE_DATA_REJECTED: {
-      return { ...state, isFetching: false, error: action.payload }
+      return { ...state, isFetching: false, error: action.payload };
     }
   }
   return state;
