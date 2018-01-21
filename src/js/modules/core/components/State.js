@@ -24,7 +24,7 @@ const State = ({ classes, state, onClick }) => {
       className={classes.State}
       onClick={() => onClick(state)}
       style={{
-        backgroundColor: stateColors[STATE_CODE_TO_COLOR_INDEX[state.code]],
+        backgroundColor: state ? stateColors[STATE_CODE_TO_COLOR_INDEX[state.code]] : "#fff",
       }}
     />
   );

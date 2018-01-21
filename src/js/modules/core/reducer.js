@@ -1,6 +1,18 @@
 import { STATE_CODE_TO_NAME } from "./constants";
+import { USA } from "./data/usa";
 
 const initialState = { grid: [], unitedStatesGrid: [] };
+
+initialState.unitedStatesGrid = USA.map(row => {
+  return row.map(x => {
+    if (x === 0) {
+      return null;
+    }
+    return {
+      code: x,
+    };
+  });
+});
 
 const NUM_COLS = 30;
 const NUM_ROWS = 30;
@@ -18,18 +30,6 @@ for (let r = 0; r < NUM_ROWS; r++) {
     });
   }
   initialState.grid.push(row);
-}
-
-const stateCodes = ["WA", "DE", "WI", "WV", "FL", "WY", "NH", "NJ", "NM", "TX", "LA", "NC", "ND", "NE", "TN", "NY", "PA", "CA", "NV", "VA", "CO", "AL", "AR", "VT", "IL", "GA", "IN", "IA", "MA", "AZ", "ID", "CT", "ME", "MD", "OK", "OH", "UT", "MO", "MN", "MI", "RI", "KS", "MT", "MS", "SC", "KY", "OR", "SD"];
-
-for (let r = 0; r < NUM_ROWS; r++) {
-  const row = [];
-  for (let c = 0; c < 48; c++) {
-    row.push({
-      code: stateCodes[c],
-    });
-  }
-  initialState.unitedStatesGrid.push(row);
 }
 
 const reducer = (state = { ...initialState }, action) => {
