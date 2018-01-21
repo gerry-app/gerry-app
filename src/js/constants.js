@@ -1,4 +1,4 @@
-export const CELL_SIZE = "20px";
+export const CELL_SIZE = "15px";
 
 export const STATE_CODE_TO_NAME = {
   WA: "Washington",

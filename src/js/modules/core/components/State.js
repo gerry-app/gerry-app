@@ -11,6 +11,7 @@ const stateColors = [
 
 const styles = {
   State: {
+    backgroundColor: "aliceblue",
     display: "inline-block",
     height: CELL_SIZE,
     width: CELL_SIZE,
@@ -18,13 +19,18 @@ const styles = {
   },
 };
 
-const State = ({ classes, state, onClick }) => {
+const State = ({ classes, state, onClick, onMouseEnter, onMouseLeave }) => {
+  if (!state) {
+    return <div className={classes.State} />
+  }
   return (
     <div
       className={classes.State}
+      onMouseLeave={onMouseLeave}
+      onMouseEnter={() => onMouseEnter(state)}
       onClick={() => onClick(state)}
       style={{
-        backgroundColor: state ? stateColors[STATE_CODE_TO_COLOR_INDEX[state.code]] : "#fff",
+        backgroundColor: stateColors[STATE_CODE_TO_COLOR_INDEX[state.code]],
       }}
     />
   );

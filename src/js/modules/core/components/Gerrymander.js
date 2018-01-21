@@ -8,7 +8,7 @@ import FlatButton from 'material-ui/FlatButton';
 import Cell from "./Cell";
 import Dashboard from "./Dashboard";
 import { CELL_SIZE, GET_DISTRICT_COLOR, STATE_CODE_TO_NAME } from "../../../constants";
-import { refreshWindowDimensions } from "../actions";
+import { getStateGrid } from "../selectors";
 
 const styles = {
   Gerrymander: {
@@ -16,8 +16,9 @@ const styles = {
     justifyContent: "space-around",
   },
   grid: {
-    width: "600px",
+    width: "920px",
     margin: "0 auto",
+    marginTop: "150px",
   },
   sexy: {
     fontFamily: "Atlas Grotesk",
@@ -36,15 +37,13 @@ class Gerrymander extends React.PureComponent {
     let districts = {};
     this.props.grid.forEach(row => {
       row.forEach(cell => {
-        if (cell.district in districts) {
-          districts[cell.district].democrats += cell.democrats;
-          districts[cell.district].republicans += cell.republicans;
-          districts[cell.district].independents += cell.independents;
+        if (cell.dis in districts) {
+          districts[cell.dis].democrats += cell.D;
+          districts[cell.dis].republicans += cell.R;
         } else {
           districts[cell.district] = {
-            democrats: cell.democrats,
-            republicans: cell.republicans,
-            independents: cell.independents,
+            democrats: cell.D,
+            republicans: cell.R,
           };
         }
       });
@@ -68,14 +67,12 @@ class Gerrymander extends React.PureComponent {
 
   handleMouseEnter = cell => {
     const { focusedCell, districts, grid } = this.state;
-    if (focusedCell && focusedCell.district !== cell.district) {
-      districts[focusedCell.district].democrats += cell.democrats;
-      districts[focusedCell.district].republicans += cell.republicans;
-      districts[focusedCell.district].independents += cell.independents;
-      districts[cell.district].democrats -= cell.democrats;
-      districts[cell.district].republicans -= cell.republicans;
-      districts[cell.district].independents -= cell.independents;
-      grid[cell.row][cell.col].district = focusedCell.district;
+    if (focusedCell && focusedCell.dis !== cell.dis) {
+      districts[focusedCell.dis].democrats += cell.democrats;
+      districts[focusedCell.dis].republicans += cell.republicans;
+      districts[cell.dis].democrats -= cell.democrats;
+      districts[cell.dis].republicans -= cell.republicans;
+      grid[cell.row][cell.col].dis = focusedCell.district;
       this.setState({ rerender: !this.state.rerender }); // forces child update
     }
   };
@@ -138,12 +135,8 @@ class Gerrymander extends React.PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
-  grid: state.core.grid,
+const mapStateToProps = (state, ownProps) => ({
+  grid: getStateGrid(state, ownProps),
 });
-
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ refreshWindowDimensions }, dispatch);
-};
 
 export default connect(mapStateToProps)(injectSheet(styles)(Gerrymander));

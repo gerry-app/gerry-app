@@ -101,7 +101,7 @@ const PageLayout = ({ classes, children, location }) => {
       <div
         className={classes.pageContent}
         style={{
-          backgroundColor: location.pathname.includes("/state/")
+          backgroundColor: (location.pathname.includes("/state/") || location.pathname === "/")
             ? "aliceblue"
             : "#fff",
         }}
