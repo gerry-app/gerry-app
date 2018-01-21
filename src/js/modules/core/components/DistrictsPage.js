@@ -46,21 +46,22 @@ class DistrictsPage extends React.Component {
         onClick={this.handleModalClose}
       />,
     ];
+    const stateName = STATE_CODE_TO_NAME[match.params.state_code]
     return (
       <div>
         <Helmet>
-          <title>{`The State of ${STATE_CODE_TO_NAME[match.params.state_code]}`}</title>
+          <title>{`The State of ${stateName}`}</title>
         </Helmet>
         {grid && (
           <div>
             <Dialog
-              title="Mission: Partisan Gerrymander"
+              title={`Mission: ${stateName} Partisan Gerrymander`}
               actions={modalActions}
               modal={false}
               open={open}
               onRequestClose={this.handleModalClose}
             >
-              This map represents the most recent redistricting of {STATE_CODE_TO_NAME[match.params.state_code]}.
+              This map represents the most recent redistricting of {stateName}.
             </Dialog>
             <Gerrymander grid={grid} match={match} />
           </div>

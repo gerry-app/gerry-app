@@ -12,9 +12,8 @@ const styles = {
     justifyContent: "space-around",
   },
   grid: {
-    width: "920px",
+    paddingLeft: "18px",
     margin: "0 auto",
-    marginTop: "150px",
   },
   sexy: {
     fontFamily: "Atlas Grotesk",
@@ -81,7 +80,7 @@ class Gerrymander extends React.PureComponent {
 
   render() {
     const { classes, match } = this.props;
-    const { grid, districts } = this.state;
+    const { grid, districts, focusedCell } = this.state;
     return (      
       <div className={classes.Gerrymander}>
         <div className={classes.grid}>
@@ -89,20 +88,24 @@ class Gerrymander extends React.PureComponent {
           {grid.map((row, index) => {
             return (
               <div className={classes.row} key={index}>
-                {row.map((cell, cIndex) => (
-                  <Cell
-                    key={cIndex}
-                    cell={cell}
-                    onMouseEnter={this.handleMouseEnter}
-                    onMouseDown={this.handleMouseDown}
-                    onMouseUp={this.handleMouseUp}
-                  />
-                ))}
+                {row.map((cell, cIndex) => {
+                  if (cIndex % 2 == 0) {
+                    return (
+                      <Cell
+                        key={cIndex}
+                        cell={cell}
+                        onMouseEnter={this.handleMouseEnter}
+                        onMouseDown={this.handleMouseDown}
+                        onMouseUp={this.handleMouseUp}
+                      />
+                    );
+                  }
+                })}
               </div>
             );
           })}
         </div>
-        <Dashboard districts={districts} />
+        <Dashboard districts={districts} focusedDistrict={focusedCell && focusedCell.dis} />
       </div>
     );
   }

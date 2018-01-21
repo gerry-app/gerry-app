@@ -12,10 +12,13 @@ const styles = {
     userSelect: "none",
     textAlign: "center",
   },
+  badge: {
+    boxSizing: "border-box",
+    color: "#fff",
+  }
 };
 
-const Dashboard = ({ classes, districts }) => {
-  console.log(districts);
+const Dashboard = ({ classes, districts, focusedDistrict }) => {
   return (
     <div>
       <table className={classes.status}>
@@ -35,10 +38,10 @@ const Dashboard = ({ classes, districts }) => {
               district.democrats + district.republicans + district.independents;
             return (
               <tr key={districtCode} className={classes.tableRow}>
-                <td
+                <td className={classes.badge}
                   style={{
                     background: GET_DISTRICT_COLOR(districtCode),
-                    color: "#fff",
+                    border: districtCode === focusedDistrict ? "3px solid #000" : "none",
                   }}
                 >
                   {districtCode}

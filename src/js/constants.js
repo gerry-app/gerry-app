@@ -1,4 +1,4 @@
-export const API_ENDPOINT = "http://asdf";
+export const API_ENDPOINT = "https://gerry.pchancs.com";
 
 export const CELL_SIZE = "15px";
 
