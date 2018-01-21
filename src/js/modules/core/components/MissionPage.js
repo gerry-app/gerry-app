@@ -30,6 +30,10 @@ const styles = {
     marginTop: "30px",
     textAlign: "center",
   },
+  header: {
+    marginTop: "12px",
+    display: "inline-block",
+  },
 };
 
 const abbrv = "OR";
@@ -87,11 +91,11 @@ class MissionPage extends React.Component {
               lines around a set of voters that will elect your party's
               candidate. The two principle tactics used in gerrymandering are
               "cracking" and "packing."<br />
-              <b>Cracking - </b>
+              <b className={classes.header}>Cracking - </b>
               Spreading like-minded voters apart across multiple districts to
               dilute their voting power in each. This denies the group
               representation in multiple districts.<br />
-              <b>Packing - </b>
+              <b className={classes.header}>Packing - </b>
               Concentrating like-minded voters together in one district to
               reduce their voting power in other districts. This gives the group
               representation in a single district while denying them
