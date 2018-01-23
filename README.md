@@ -1,7 +1,7 @@
 # gerry
 Main client-facing application for Gerry, written by Jason Kao.
 
-## Developing
+## Running it
 
 #### With Live-Reload Server ###
 
