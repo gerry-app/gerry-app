@@ -14,6 +14,11 @@ import {
 import { refreshWindowDimensions } from "../actions";
 
 const styles = {
+  UnitedStates: {    
+    fontFamily: "Atlas Grotesk",
+    fontSize: "16px",
+    textAlign: "center",
+  },
   grid: {
     width: "920px",
     margin: "0 auto",
@@ -27,14 +32,6 @@ const styles = {
   },
   currentState: {
     transform: "uppercase",
-    fontFamily: "Atlas Grotesk",
-    fontSize: "16px",
-    textAlign: "center",
-  },
-  or: {
-    fontFamily: "Atlas Grotesk",
-    fontSize: "16px",
-    textAlign: "center",
   },
 };
 
@@ -68,6 +65,7 @@ class UnitedStates extends React.Component {
           <title>The Gerry App</title>
         </Helmet>
         <p className={classes.currentState}>
+          Click on a state!<br/>
           Explore {this.state.hoveredState}.
         </p>
         <div className={classes.grid} onMouseLeave={this.handleOnMouseLeave}>
@@ -86,11 +84,15 @@ class UnitedStates extends React.Component {
             );
           })}
         </div>
-        <p className={classes.or}>
+        <p>
           <i>Or</i> play our{" "}
           <Link to="/mission/population" className={classes.mission}>
-            mission
+            missions
           </Link>...
+        </p>
+        <p>
+          Read about gerrymandering and congressional redistricting in
+          &nbsp;<Link to="/current-events">current events.</Link>
         </p>
       </div>
     );

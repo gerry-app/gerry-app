@@ -8,3 +8,4 @@ export { default as Dashboard } from "./Dashboard";
 export { default as MissionPage } from "./MissionPage";
 export { default as PopulationPage } from "./PopulationPage";
 export { default as UnitedStates } from "./UnitedStates";
+export { default as CurrentEvents } from "./CurrentEvents";
