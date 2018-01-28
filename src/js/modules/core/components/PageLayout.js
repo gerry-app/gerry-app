@@ -87,6 +87,9 @@ const PageLayout = ({ classes, children, location }) => {
               Take Action
             </a>
           </li>
+          <li>
+            <Link to="/current-events">Latest News</Link>
+          </li>
         </ul>
         <ul className={classes.pageNavMeta}>
           <li>

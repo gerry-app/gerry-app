@@ -91,7 +91,7 @@ class UnitedStates extends React.Component {
           </Link>...
         </p>
         <p>
-          Read about gerrymandering and congressional redistricting in &nbsp;<Link to="/current-events">current events.</Link>
+          Read about gerrymandering and congressional redistricting in <Link to="/current-events">current events.</Link>
         </p>
       </div>
     );
