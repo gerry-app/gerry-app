@@ -71,7 +71,8 @@ class DistrictsPage extends React.Component {
               open={open}
               onRequestClose={this.handleModalClose}
             >
-              This map represents the most recent redistricting of {stateName}.
+              Drag areas of each district into other districts and watch the
+              constituent political balance change.
             </Dialog>
             <Gerrymander grid={grid} match={match} />
           </div>
