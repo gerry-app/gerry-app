@@ -5,6 +5,9 @@ import {
   FETCH_STATE_DATA_PENDING,
   FETCH_STATE_DATA_REJECTED,
   FETCH_STATE_DATA_FULFILLED,
+  FETCH_CURRENT_EVENTS_PENDING,
+  FETCH_CURRENT_EVENTS_REJECTED,
+  FETCH_CURRENT_EVENTS_FULFILLED,
 } from "./actionTypes";
 
 const initialState = {
@@ -12,6 +15,7 @@ const initialState = {
   error: null,
   stateGrid: null,
   unitedStatesGrid: null,
+  currentEvents: null,
 };
 
 initialState.unitedStatesGrid = USA.map(row => {
@@ -27,7 +31,7 @@ initialState.unitedStatesGrid = USA.map(row => {
 
 const reducer = (state = { ...initialState }, action) => {
   switch (action.type) {
-    case FETCH_STATE_DATA_PENDING: {
+    case FETCH_STATE_DATA_PENDING: case FETCH_CURRENT_EVENTS_PENDING: {
       return {
         ...state,
         isFetching: true,
@@ -40,8 +44,16 @@ const reducer = (state = { ...initialState }, action) => {
         stateGrid: action.payload,
       };
     }
-    case FETCH_STATE_DATA_REJECTED: {
+    case FETCH_STATE_DATA_REJECTED: case FETCH_CURRENT_EVENTS_REJECTED: {
       return { ...state, isFetching: false, error: action.payload };
+    }
+
+    case FETCH_CURRENT_EVENTS_FULFILLED: {
+      return {
+        ...state,
+        isFetching: false,
+        currentEvents: action.payload,
+      };
     }
   }
   return state;
