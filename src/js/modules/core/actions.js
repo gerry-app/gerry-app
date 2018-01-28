@@ -44,9 +44,9 @@ export const getCurrentEvents = () => {
             "https://www.nytimes.com/interactive/2018/01/17/upshot/pennsylvania-gerrymandering.html",
             "https://www.vox.com/2018/1/22/16920636/pennsylvania-gerrymander-ruling-house",
             "http://www.newsobserver.com/news/politics-government/politics-columns-blogs/under-the-dome/article196508439.html",
-            "https://www.theatlantic.com/science/archive/2018/01/efficiency-gap-gerrymandering/551492/"
+            "https://www.theatlantic.com/science/archive/2018/01/efficiency-gap-gerrymandering/551492/",
           ],
         });
       });
-  }
-}
+  };
+};

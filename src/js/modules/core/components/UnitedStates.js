@@ -14,7 +14,7 @@ import {
 import { refreshWindowDimensions } from "../actions";
 
 const styles = {
-  UnitedStates: {    
+  UnitedStates: {
     fontFamily: "Atlas Grotesk",
     fontSize: "16px",
     textAlign: "center",
@@ -65,7 +65,7 @@ class UnitedStates extends React.Component {
           <title>The Gerry App</title>
         </Helmet>
         <p className={classes.currentState}>
-          Click on a state!<br/>
+          Click on a state!<br />
           Explore {this.state.hoveredState}.
         </p>
         <div className={classes.grid} onMouseLeave={this.handleOnMouseLeave}>
@@ -91,8 +91,7 @@ class UnitedStates extends React.Component {
           </Link>...
         </p>
         <p>
-          Read about gerrymandering and congressional redistricting in
-          &nbsp;<Link to="/current-events">current events.</Link>
+          Read about gerrymandering and congressional redistricting in &nbsp;<Link to="/current-events">current events.</Link>
         </p>
       </div>
     );

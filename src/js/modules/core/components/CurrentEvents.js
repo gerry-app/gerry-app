@@ -45,16 +45,20 @@ class CurrentEvents extends PureComponent {
         </Helmet>
         <div className={classes.term}>
           <b>
-            Gerry is designed to educate, engage, and empower citizens around the
-            issue of political redistricting.
+            Gerry is designed to educate, engage, and empower citizens around
+            the issue of political redistricting.
           </b>
-          <p>
-            Here is a selection of articles from current events:
-          </p>
+          <p>Here is a selection of articles from current events:</p>
           <ul className={classes.articles}>
-          {currentEvents ? (
-            currentEvents.map(url => <li><a href={url}>{url}</a></li>)
-          ) : <p>Loading...</p>}
+            {currentEvents ? (
+              currentEvents.map(url => (
+                <li>
+                  <a href={url}>{url}</a>
+                </li>
+              ))
+            ) : (
+              <p>Loading...</p>
+            )}
           </ul>
         </div>
       </div>
@@ -68,6 +72,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({ getCurrentEvents }, dispatch);
-}
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(injectSheet(styles)(CurrentEvents));
+export default connect(mapStateToProps, mapDispatchToProps)(
+  injectSheet(styles)(CurrentEvents),
+);

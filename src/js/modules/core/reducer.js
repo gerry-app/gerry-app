@@ -31,7 +31,8 @@ initialState.unitedStatesGrid = USA.map(row => {
 
 const reducer = (state = { ...initialState }, action) => {
   switch (action.type) {
-    case FETCH_STATE_DATA_PENDING: case FETCH_CURRENT_EVENTS_PENDING: {
+    case FETCH_STATE_DATA_PENDING:
+    case FETCH_CURRENT_EVENTS_PENDING: {
       return {
         ...state,
         isFetching: true,
@@ -44,7 +45,8 @@ const reducer = (state = { ...initialState }, action) => {
         stateGrid: action.payload,
       };
     }
-    case FETCH_STATE_DATA_REJECTED: case FETCH_CURRENT_EVENTS_REJECTED: {
+    case FETCH_STATE_DATA_REJECTED:
+    case FETCH_CURRENT_EVENTS_REJECTED: {
       return { ...state, isFetching: false, error: action.payload };
     }
 
