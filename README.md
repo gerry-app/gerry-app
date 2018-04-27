@@ -1,5 +1,5 @@
 # gerry
-Main client-facing application for Gerry, written by Jason Kao.
+Data visualization and interactive simulation of the congressional redistricting process that places 435 mesh-simplified district shapefiles over electoral data of individual counties; written by Jason Kao.
 
 ## Running it
 
