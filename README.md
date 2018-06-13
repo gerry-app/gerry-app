@@ -2,7 +2,7 @@
 
 Data visualization and interactive simulation of the congressional redistricting process that places 435 mesh-simplified district shapefiles over electoral data of individual counties; written by Jason Kao.
 
-See the demo [here](http://gerryapp.com.s3-website-us-east-1.amazonaws.com/).
+**DEMO**: http://gerryapp.com.s3-website-us-east-1.amazonaws.com/
 
 ## Running it
 
