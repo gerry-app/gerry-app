@@ -1,4 +1,4 @@
-_Note that the distribution is in the `master` branch, the source code is in the `develop` branch. I made this terrible, ranky decision to make the GitHub Pages work (i.e. I did not want to continue paying for CloudFront)._
+_Note: The distribution is in the `master` branch, and the source code is in the `develop` branch. I made this terrible, ranky decision so I could host the source code on GitHub Pages (i.e. I did not want to continue paying for CloudFront)._
 
 # gerry
 
