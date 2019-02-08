@@ -45,7 +45,7 @@ class DistrictsPage extends React.Component {
     const { isFetching, error, grid, match, classes } = this.props;
     const { open } = this.state;
     if (error) {
-      return <p className={classes.sexy}>We have encountered an error.</p>;
+      return <p className={classes.sexy}>We are refactoring our elections data API, apologies for the inconvenience. Read about our <a href="https://jasonkao.me">demos</a> and <a href="https://devpost.com/software/gerry">methodology</a>.</p>;
     } else if (isFetching) {
       return <p className={classes.sexy}>Loading...</p>;
     }
