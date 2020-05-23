@@ -1,34 +1,30 @@
-import React, { PureComponent } from "react";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import injectSheet from "react-jss";
-import { Helmet } from "react-helmet";
+import React, { PureComponent } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import injectSheet from 'react-jss';
+import { Helmet } from 'react-helmet';
 
-import { getCurrentEvents } from "../actions";
+import { getCurrentEvents } from '../actions';
 
 const styles = {
   CurrentEvents: {
-    maxWidth: "940px",
-    margin: "0 auto",
+    maxWidth: '940px',
+    margin: '0 auto',
   },
   term: {
-    "& b": {
-      fontFamily: "Super Grotesk",
+    '& b': {
+      fontFamily: 'Super Grotesk',
     },
-    "& p": {
-      margin: "0 0 1em 0",
+    '& p': {
+      margin: '0 0 1em 0',
     },
   },
   articles: {
-    listStyle: "circle inside",
+    listStyle: 'circle inside',
   },
 };
 
 class CurrentEvents extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
     if (!this.props.currentEvents) {
       this.props.getCurrentEvents();
@@ -52,7 +48,7 @@ class CurrentEvents extends PureComponent {
           <ul className={classes.articles}>
             {currentEvents ? (
               currentEvents.map(url => (
-                <li>
+                <li key={url}>
                   <a href={url}>{url}</a>
                 </li>
               ))
@@ -74,6 +70,7 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators({ getCurrentEvents }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  injectSheet(styles)(CurrentEvents),
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(injectSheet(styles)(CurrentEvents));

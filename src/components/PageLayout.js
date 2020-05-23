@@ -103,7 +103,7 @@ const PageLayout = ({ classes, children, location }) => {
             </a>
           </li>
           <li>
-            <a href="https://github.com/gerry-manders">GitHub</a>
+            <a href="https://github.com/gerry-app">GitHub</a>
           </li>
           <li>
             <a href="http://www.redistrictingthenation.com/glossary.aspx">

@@ -1,37 +1,34 @@
-import React from "react";
-import injectSheet from "react-jss";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import Cell from "./Cell";
-import Dashboard from "./Dashboard";
+import React from 'react';
+import injectSheet from 'react-jss';
+import { Link } from 'react-router-dom';
+import Cell from './Cell';
+import Dashboard from './Dashboard';
 import {
   CELL_SIZE,
-  GET_DISTRICT_COLOR,
-  STATE_CODE_TO_NAME,
-} from "../../../constants";
+} from '../constants';
 
 const styles = {
   MissionGerrymander: {
-    display: "flex",
-    justifyContent: "space-around",
+    display: 'flex',
+    justifyContent: 'space-around',
   },
   grid: {
-    paddingLeft: "18px",
-    margin: "0 auto",
+    paddingLeft: '18px',
+    margin: '0 auto',
   },
   sexy: {
-    fontFamily: "Atlas Grotesk",
+    fontFamily: 'Atlas Grotesk',
     fontWeight: 300,
-    fontSize: "11px",
-    textTransform: "uppercase",
+    fontSize: '11px',
+    textTransform: 'uppercase',
   },
   row: {
     height: CELL_SIZE,
   },
   usaLink: {
-    color: "#000",
-    "&:hover, &:active, &:visited": {
-      color: "#000",
+    color: '#000',
+    '&:hover, &:active, &:visited': {
+      color: '#000',
     },
   },
 };
@@ -96,14 +93,14 @@ class MissionGerrymander extends React.PureComponent {
           <p className={classes.sexy}>
             <Link to="/" className={classes.usaLink}>
               The United States of America
-            </Link>{" "}
-            {">"} Mission
+            </Link>{' '}
+            {'>'} Mission
           </p>
           {grid.map((row, index) => {
             return (
               <div className={classes.row} key={index}>
                 {row.map((cell, cIndex) => {
-                  if (cIndex % 2 == 0) {
+                  if (cIndex % 2 === 0) {
                     return (
                       <Cell
                         key={cIndex}
@@ -114,6 +111,7 @@ class MissionGerrymander extends React.PureComponent {
                       />
                     );
                   }
+                  return null;
                 })}
               </div>
             );

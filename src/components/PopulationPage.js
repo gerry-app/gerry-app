@@ -1,43 +1,49 @@
-import React from "react";
-import injectSheet from "react-jss";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { withRouter, Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
-import Dialog from "material-ui/Dialog";
-import FlatButton from "material-ui/FlatButton";
-import { STATE_CODE_TO_NAME } from "../../../constants";
-import MissionGerrymander from "./MissionGerrymander";
-import { getStateGrid } from "../actions";
+import React from 'react';
+import injectSheet from 'react-jss';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { withRouter, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import {
+  Dialog,
+  // DialogTitle,
+  // DialogActions,
+  // DialogContent,
+  // DialogContentText,
+  Button,
+} from '@material-ui/core';
+import { STATE_CODE_TO_NAME } from '../constants';
+import MissionGerrymander from './MissionGerrymander';
+import { getStateGrid } from '../actions';
 
 const styles = {
   sexy: {
-    fontFamily: "Atlas Grotesk",
+    fontFamily: 'Atlas Grotesk',
     fontWeight: 300,
-    fontSize: "11px",
-    marginLeft: "40px",
-    marginTop: "20px",
-    textTransform: "uppercase",
+    fontSize: '11px',
+    marginLeft: '40px',
+    marginTop: '20px',
+    textTransform: 'uppercase',
   },
   concepts: {
-    "& > li": {
-      marginTop: "12px",
+    '& > li': {
+      marginTop: '12px',
     },
   },
   task: {
-    display: "block",
-    marginTop: "12px",
+    display: 'block',
+    marginTop: '12px',
   },
   or: {
-    fontFamily: "Atlas Grotesk",
-    fontSize: "13px",
-    display: "block",
-    marginTop: "30px",
-    textAlign: "center",
+    fontFamily: 'Atlas Grotesk',
+    fontSize: '13px',
+    display: 'block',
+    marginTop: '30px',
+    textAlign: 'center',
   },
 };
 
-const abbrv = "AR";
+const abbrv = 'AR';
 
 class PopulationPage extends React.Component {
   constructor(props) {
@@ -68,7 +74,7 @@ class PopulationPage extends React.Component {
       return <p className={classes.sexy}>Loading...</p>;
     }
     const modalActions = [
-      <FlatButton
+      <Button
         label="proceed"
         primary={true}
         onClick={this.handleModalClose}
@@ -87,7 +93,7 @@ class PopulationPage extends React.Component {
               modal={false}
               open={open}
               autoScrollBodyContent={true}
-              onRequestClose={this.handleModalClose}
+              onClose={this.handleModalClose}
             >
               There are three fundamental concepts of redistricting. These are:
               <ul className={classes.concepts}>
@@ -97,12 +103,14 @@ class PopulationPage extends React.Component {
                   this number ranges between 640,000 - 650,000 people,
                   approximating the size of current U.S. congressional
                   districts. At the federal level, courts tend to enforce the
-                  population equality standard very strictly.<br />
+                  population equality standard very strictly.
+                  <br />
                 </li>
                 <li>
                   <b>Contiguity</b> - Each district must be one continuous
                   shape. No "land islands" are allowed. U.S. courts always
-                  enforce the principle of contiguity.<br />
+                  enforce the principle of contiguity.
+                  <br />
                 </li>
                 <li>
                   <b>Compactness</b> - Generally speaking, districts need to be
@@ -111,7 +119,8 @@ class PopulationPage extends React.Component {
                   gerrymandered districts. Because compactness is a traditional
                   standard about which there is no generally accepted method of
                   measurement, the courts in most states do not usually enforce
-                  the compactness principle in practice.<br />
+                  the compactness principle in practice.
+                  <br />
                 </li>
               </ul>
               <u className={classes.task}>
@@ -144,7 +153,8 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(
-    injectSheet(styles)(PopulationPage),
-  ),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(injectSheet(styles)(PopulationPage)),
 );

@@ -7,8 +7,8 @@ import {
   Glossary,
   AboutPage,
   // MissionPage,
-  // PopulationPage,
-  // CurrentEvents,
+  PopulationPage,
+  CurrentEvents,
 } from './components';
 
 const RoutingApp = () => {
@@ -19,9 +19,9 @@ const RoutingApp = () => {
         <Route exact path="/state/:state_code" component={DistrictsPage} />
         <Route exact path="/about" component={AboutPage} />
         <Route exact path="/glossary" component={Glossary} />
-        {/* <Route exact path="/current-events" component={CurrentEvents} /> */}
+        <Route exact path="/current-events" component={CurrentEvents} />
         {/* <Route exact path="/mission/partisan" component={MissionPage} /> */}
-        {/* <Route exact path="/mission/population" component={PopulationPage} /> */}
+        <Route exact path="/mission/population" component={PopulationPage} />
       </Switch>
     </PageLayout>
   );
