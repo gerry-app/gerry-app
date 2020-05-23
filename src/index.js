@@ -20,17 +20,17 @@ const store = configureStore();
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-    <PageLayout>
-      <Switch>
-        <Route exact path="/" component={UnitedStates} />
-        <Route exact path="/state/:state_code" component={DistrictsPage} />
-        <Route exact path="/about" component={AboutPage} />
-        <Route exact path="/glossary" component={Glossary} />
-        <Route exact path="/current-events" component={CurrentEvents} />
-        {/* <Route exact path="/mission/partisan" component={MissionPage} /> */}
-        <Route exact path="/mission/population" component={PopulationPage} />
-      </Switch>
-    </PageLayout>
+      <PageLayout>
+        <Switch>
+          <Route exact path="/" component={UnitedStates} />
+          <Route exact path="/state/:state_code" component={DistrictsPage} />
+          <Route exact path="/about" component={AboutPage} />
+          <Route exact path="/glossary" component={Glossary} />
+          <Route exact path="/current-events" component={CurrentEvents} />
+          {/* <Route exact path="/mission/partisan" component={MissionPage} /> */}
+          <Route exact path="/mission/population" component={PopulationPage} />
+        </Switch>
+      </PageLayout>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root'),

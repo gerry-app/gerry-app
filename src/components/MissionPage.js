@@ -1,42 +1,42 @@
-import React from "react";
-import injectSheet from "react-jss";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { withRouter, Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
-import Dialog from "material-ui/Dialog";
-import FlatButton from "material-ui/FlatButton";
-import { STATE_CODE_TO_NAME } from "../../../constants";
-import MissionGerrymander from "./MissionGerrymander";
-import { getStateGrid } from "../actions";
+import React from 'react';
+import injectSheet from 'react-jss';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { withRouter, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import { STATE_CODE_TO_NAME } from '../../../constants';
+import MissionGerrymander from './MissionGerrymander';
+import { getStateGrid } from '../actions';
 
 const styles = {
   sexy: {
-    fontFamily: "Atlas Grotesk",
+    fontFamily: 'Atlas Grotesk',
     fontWeight: 300,
-    fontSize: "11px",
-    marginLeft: "40px",
-    marginTop: "20px",
-    textTransform: "uppercase",
+    fontSize: '11px',
+    marginLeft: '40px',
+    marginTop: '20px',
+    textTransform: 'uppercase',
   },
   task: {
-    display: "block",
-    marginTop: "12px",
+    display: 'block',
+    marginTop: '12px',
   },
   or: {
-    fontFamily: "Atlas Grotesk",
-    fontSize: "13px",
-    display: "block",
-    marginTop: "30px",
-    textAlign: "center",
+    fontFamily: 'Atlas Grotesk',
+    fontSize: '13px',
+    display: 'block',
+    marginTop: '30px',
+    textAlign: 'center',
   },
   header: {
-    marginTop: "12px",
-    display: "inline-block",
+    marginTop: '12px',
+    display: 'inline-block',
   },
 };
 
-const abbrv = "OR";
+const abbrv = 'OR';
 
 class MissionPage extends React.Component {
   constructor(props) {
@@ -90,11 +90,13 @@ class MissionPage extends React.Component {
               The essence of a partisan gerrymander is manipulating district
               lines around a set of voters that will elect your party's
               candidate. The two principle tactics used in gerrymandering are
-              "cracking" and "packing."<br />
+              "cracking" and "packing."
+              <br />
               <b className={classes.header}>Cracking - </b>
               Spreading like-minded voters apart across multiple districts to
               dilute their voting power in each. This denies the group
-              representation in multiple districts.<br />
+              representation in multiple districts.
+              <br />
               <b className={classes.header}>Packing - </b>
               Concentrating like-minded voters together in one district to
               reduce their voting power in other districts. This gives the group
@@ -127,7 +129,8 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(
-    injectSheet(styles)(MissionPage),
-  ),
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(injectSheet(styles)(MissionPage)),
 );

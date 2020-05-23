@@ -3,9 +3,7 @@ import injectSheet from 'react-jss';
 import { Link } from 'react-router-dom';
 import Cell from './Cell';
 import Dashboard from './Dashboard';
-import {
-  CELL_SIZE,
-} from '../constants';
+import { CELL_SIZE } from '../constants';
 
 const styles = {
   MissionGerrymander: {

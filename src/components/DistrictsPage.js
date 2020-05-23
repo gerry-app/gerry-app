@@ -52,11 +52,7 @@ class DistrictsPage extends React.Component {
     const { isFetching, error, grid, match, classes } = this.props;
     const { open } = this.state;
     if (error) {
-      return (
-        <p className={classes.sexy}>
-          Failed to fetch data.
-        </p>
-      );
+      return <p className={classes.sexy}>Failed to fetch data.</p>;
     } else if (isFetching) {
       return <p className={classes.sexy}>Loading...</p>;
     }

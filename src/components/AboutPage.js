@@ -32,8 +32,36 @@ const AboutPage = ({ classes }) => {
       <Helmet>
         <title>About Gerry App</title>
       </Helmet>
+
       <p className={classes.sexy}>Elbridge Gerry</p>
-      <img src="/img/elbridge_gerry.svg" alt="elbridge gerry quote" className={classes.elbridge} />
+      <svg
+        className={classes.elbridge}
+        width="351px"
+        height="200px"
+        viewBox="0 0 351 200"
+      >
+        <g
+          stroke="none"
+          strokeWidth="1"
+          fill="none"
+          fillRule="evenodd"
+          fontFamily="STXingkaiTC-Light, Xingkai TC"
+          fontSize="100"
+          fontWeight="300"
+        >
+          <text id="Elbridge" fill="#000000">
+            <tspan x="0.2" y="78">
+              Elbridge
+            </tspan>
+          </text>
+          <text id="Gerry." fill="#000000">
+            <tspan x="152.45" y="166">
+              Gerry.
+            </tspan>
+          </text>
+        </g>
+      </svg>
+
       <div className={classes.term}>
         <b>
           Gerry is designed to educate, engage, and empower citizens around the

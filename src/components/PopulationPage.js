@@ -74,11 +74,7 @@ class PopulationPage extends React.Component {
       return <p className={classes.sexy}>Loading...</p>;
     }
     const modalActions = [
-      <Button
-        label="proceed"
-        primary={true}
-        onClick={this.handleModalClose}
-      />,
+      <Button label="proceed" primary={true} onClick={this.handleModalClose} />,
     ];
     return (
       <div>
