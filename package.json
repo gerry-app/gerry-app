@@ -2,7 +2,7 @@
   "name": "gerryapp.com",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gerry-app.github.io/gerryapp.com",
+  "homepage": "https://gerry-app.github.io/gerry-app.github.io",
   "dependencies": {
     "@material-ui/core": "^4.9.14",
     "axios": "^0.19.2",
