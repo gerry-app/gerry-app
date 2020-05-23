@@ -17,12 +17,7 @@ const styles = {
 };
 
 class Cell extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      district: null,
-    };
-  }
+  state = { district: null };
 
   componentWillMount() {
     if (!this.state.district) {
@@ -35,7 +30,6 @@ class Cell extends React.Component {
       return false;
     }
     if (this.state.district !== nextProps.cell.dis) {
-      this.state.district = nextProps.cell.dis;
       return true;
     }
     return false;

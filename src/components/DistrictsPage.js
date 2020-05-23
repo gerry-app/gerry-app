@@ -54,9 +54,7 @@ class DistrictsPage extends React.Component {
     if (error) {
       return (
         <p className={classes.sexy}>
-          We are refactoring our elections data API, apologies for the
-          inconvenience. Read about our <a href="https://jasonkao.me">demos</a>{' '}
-          and <a href="https://devpost.com/software/gerry">methodology</a>.
+          Failed to fetch data.
         </p>
       );
     } else if (isFetching) {
