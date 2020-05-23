@@ -6,29 +6,9 @@ import { routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import logger from 'redux-logger';
 
-// import routerMiddleware from 'react-router-redux/middleware';
-// import appHistory from "tools/appHistory";
-// import { composeWithDevTools } from 'redux-devtools-extension';
-
-/*const middleware =
-  process.env.NODE_ENV == "production"
-    ? applyMiddleware(
-        promise(),
-        thunk,
-        localizer,
-        routerMiddleware(appHistory), //for intercepting navigation actions
-      )
-    : composeWithDevTools(
-        applyMiddleware(
-          promise(),
-          thunk,
-          logger,
-          localizer,
-          routerMiddleware(appHistory),
-        ),
-      );*/
-
-export const history = createBrowserHistory();
+export const history = createBrowserHistory({
+  basename: process.env.PUBLIC_URL,
+});
 
 export default function configureStore(preloadedState) {
   const store = createStore(

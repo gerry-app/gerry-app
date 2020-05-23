@@ -1,24 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RoutingApp from './RoutingApp';
-// import injectTapEventPlugin from 'react-tap-event-plugin';
-import configureStore, { history } from './store';
+import configureStore, { history } from './configureStore';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router'
+import { ConnectedRouter } from 'connected-react-router';
+import { Switch, Route } from 'react-router-dom';
+import {
+  DistrictsPage,
+  UnitedStates,
+  PageLayout,
+  Glossary,
+  AboutPage,
+  // MissionPage,
+  PopulationPage,
+  CurrentEvents,
+} from './components';
 
-// for onClick events with MUI/React
-// try {
-// injectTapEventPlugin();
-// } catch (err) {
-/* hot reloading, no issue  */
-// }
-
-const store = configureStore(/* provide initial state if any */);
+const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <RoutingApp />
+    <PageLayout>
+      <Switch>
+        <Route exact path="/" component={UnitedStates} />
+        <Route exact path="/state/:state_code" component={DistrictsPage} />
+        <Route exact path="/about" component={AboutPage} />
+        <Route exact path="/glossary" component={Glossary} />
+        <Route exact path="/current-events" component={CurrentEvents} />
+        {/* <Route exact path="/mission/partisan" component={MissionPage} /> */}
+        <Route exact path="/mission/population" component={PopulationPage} />
+      </Switch>
+    </PageLayout>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root'),
