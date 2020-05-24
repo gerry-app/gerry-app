@@ -75,7 +75,22 @@ const PageLayout = ({ classes, children, location }) => {
             <Link to="/about">About</Link>
           </li>
           <li>
+            <a href="https://github.com/gerry-app">GitHub</a>
+          </li>
+          <li>
             <Link to="/glossary">Glossary</Link>
+          </li>
+        </ul>
+        <ul className={classes.pageNavMeta}>
+          <li>
+            <a href="https://www.irs.gov/businesses/small-businesses-self-employed/state-government-websites">
+              State Links
+            </a>
+          </li>
+          <li>
+            <a href="https://ballotpedia.org/State-by-state_redistricting_procedures">
+              How My State Works
+            </a>
           </li>
           <li>
             <a href="http://www.redistrictinggame.org/resources/beginnersguide.pdf">
@@ -89,26 +104,6 @@ const PageLayout = ({ classes, children, location }) => {
           </li>
           <li>
             <Link to="/current-events">Latest News</Link>
-          </li>
-        </ul>
-        <ul className={classes.pageNavMeta}>
-          <li>
-            <a href="https://www.irs.gov/businesses/small-businesses-self-employed/state-government-websites">
-              State Links
-            </a>
-          </li>
-          <li>
-            <a href="https://ballotpedia.org/State-by-state_redistricting_procedures">
-              How My State Does It
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/gerry-app">GitHub</a>
-          </li>
-          <li>
-            <a href="http://www.redistrictingthenation.com/glossary.aspx">
-              Tell Friends
-            </a>
           </li>
         </ul>
       </div>
