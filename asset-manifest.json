@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/gerry-app.github.io/static/js/main.405d6140.chunk.js",
-    "main.js.map": "/gerry-app.github.io/static/js/main.405d6140.chunk.js.map",
-    "runtime-main.js": "/gerry-app.github.io/static/js/runtime-main.d9d24ab5.js",
-    "runtime-main.js.map": "/gerry-app.github.io/static/js/runtime-main.d9d24ab5.js.map",
-    "static/js/2.9f4de1c6.chunk.js": "/gerry-app.github.io/static/js/2.9f4de1c6.chunk.js",
-    "static/js/2.9f4de1c6.chunk.js.map": "/gerry-app.github.io/static/js/2.9f4de1c6.chunk.js.map",
-    "index.html": "/gerry-app.github.io/index.html",
-    "precache-manifest.c14e5f6f3a4915bfb2e641f132866921.js": "/gerry-app.github.io/precache-manifest.c14e5f6f3a4915bfb2e641f132866921.js",
-    "service-worker.js": "/gerry-app.github.io/service-worker.js",
-    "static/js/2.9f4de1c6.chunk.js.LICENSE.txt": "/gerry-app.github.io/static/js/2.9f4de1c6.chunk.js.LICENSE.txt"
+    "main.js": "/gerry-app/static/js/main.5ed86ec2.chunk.js",
+    "main.js.map": "/gerry-app/static/js/main.5ed86ec2.chunk.js.map",
+    "runtime-main.js": "/gerry-app/static/js/runtime-main.b850b9a7.js",
+    "runtime-main.js.map": "/gerry-app/static/js/runtime-main.b850b9a7.js.map",
+    "static/js/2.f1785214.chunk.js": "/gerry-app/static/js/2.f1785214.chunk.js",
+    "static/js/2.f1785214.chunk.js.map": "/gerry-app/static/js/2.f1785214.chunk.js.map",
+    "index.html": "/gerry-app/index.html",
+    "precache-manifest.6b7462d30d5d8d8a86199e5b2a59a7b6.js": "/gerry-app/precache-manifest.6b7462d30d5d8d8a86199e5b2a59a7b6.js",
+    "service-worker.js": "/gerry-app/service-worker.js",
+    "static/js/2.f1785214.chunk.js.LICENSE.txt": "/gerry-app/static/js/2.f1785214.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.d9d24ab5.js",
-    "static/js/2.9f4de1c6.chunk.js",
-    "static/js/main.405d6140.chunk.js"
+    "static/js/runtime-main.b850b9a7.js",
+    "static/js/2.f1785214.chunk.js",
+    "static/js/main.5ed86ec2.chunk.js"
   ]
 }
