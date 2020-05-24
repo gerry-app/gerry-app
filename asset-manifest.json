@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/gerry-app/static/js/main.5ed86ec2.chunk.js",
-    "main.js.map": "/gerry-app/static/js/main.5ed86ec2.chunk.js.map",
+    "main.js": "/gerry-app/static/js/main.cd88a7ac.chunk.js",
+    "main.js.map": "/gerry-app/static/js/main.cd88a7ac.chunk.js.map",
     "runtime-main.js": "/gerry-app/static/js/runtime-main.b850b9a7.js",
     "runtime-main.js.map": "/gerry-app/static/js/runtime-main.b850b9a7.js.map",
     "static/js/2.f1785214.chunk.js": "/gerry-app/static/js/2.f1785214.chunk.js",
     "static/js/2.f1785214.chunk.js.map": "/gerry-app/static/js/2.f1785214.chunk.js.map",
     "index.html": "/gerry-app/index.html",
-    "precache-manifest.6b7462d30d5d8d8a86199e5b2a59a7b6.js": "/gerry-app/precache-manifest.6b7462d30d5d8d8a86199e5b2a59a7b6.js",
+    "precache-manifest.d9a519aa0c55842170ee3e440b7b6435.js": "/gerry-app/precache-manifest.d9a519aa0c55842170ee3e440b7b6435.js",
     "service-worker.js": "/gerry-app/service-worker.js",
     "static/js/2.f1785214.chunk.js.LICENSE.txt": "/gerry-app/static/js/2.f1785214.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b850b9a7.js",
     "static/js/2.f1785214.chunk.js",
-    "static/js/main.5ed86ec2.chunk.js"
+    "static/js/main.cd88a7ac.chunk.js"
   ]
 }

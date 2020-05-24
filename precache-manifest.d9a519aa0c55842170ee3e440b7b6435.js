@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a7ad27293237ca6f4008be1b1a9a50d9",
+    "revision": "8a530ed6c533ce20b71c45e30c1c2016",
     "url": "/gerry-app/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/gerry-app/static/js/2.f1785214.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "069ef066b72390d9034f",
-    "url": "/gerry-app/static/js/main.5ed86ec2.chunk.js"
+    "revision": "7e7981a77dc8bb4f0128",
+    "url": "/gerry-app/static/js/main.cd88a7ac.chunk.js"
   },
   {
     "revision": "4100c7f7d22c2c5e53e6",
