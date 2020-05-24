@@ -1,5 +1,5 @@
-# gerryapp.com
+# gerry-app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Data visualization and interactive playground of the congressional redistricting process. Places mesh-simplified districts shapefiles onto real electoral data of individual counties. Written by Jason Kao.
 
-Data visualization and interactive simulation of the congressional redistricting process that places 435 mesh-simplified district shapefiles over electoral data of individual counties; written by Jason Kao.
+This project was created with React and Redux.
