@@ -1,4 +1,5 @@
-export const API_ENDPOINT = 'https://whispering-lake-90400.herokuapp.com';
+export const API_ENDPOINT =
+  'https://cors-anywhere.herokuapp.com/https://whispering-lake-90400.herokuapp.com';
 
 export const CELL_SIZE = '15px';
 
